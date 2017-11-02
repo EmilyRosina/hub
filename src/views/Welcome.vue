@@ -1,0 +1,47 @@
+<template>
+  <sl-container id="welcome" fullWidth fullHeight>
+    <sl-row noGutters :flexGrow="1">
+      <sidebar></sidebar>
+      <sl-col>
+        <sl-container fullWidth fullHeight>
+          <sl-row noGutters :flexGrow="1">
+            <sl-col>2nd col - 1st row</sl-col>
+          </sl-row>
+          <sl-row noGutters :flexGrow="6">
+            <sl-col>
+              <p>examples i like...</p>
+              <img src="https://reflect.io/assets/blog/github-screenshot-350443090d37bcbe5d838673f90149df0f1defdad08be88eb16438901411003c.png"/>
+              <img src="https://purecss.io/img/layouts/blog@2x.jpg"/>
+            </sl-col>
+          </sl-row>
+        </sl-container>
+      </sl-col>
+    </sl-row>
+  </sl-container>
+</template>
+
+<script>
+  import slContainer from 'shoelace/container'
+  import slRow from 'shoelace/row'
+  import slCol from 'shoelace/col'
+  import sidebar from '@/components/layout/sidebar'
+
+  export default {
+    name: 'Welcome',
+    data () {
+      return {
+
+      }
+    },
+    components: {
+      slContainer,
+      slRow,
+      slCol,
+      sidebar
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+
+</style>

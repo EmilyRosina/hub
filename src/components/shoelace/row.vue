@@ -1,0 +1,74 @@
+<template>
+  <div :class="['row', classes]" :style="styles">
+    <slot></slot>
+  </div>
+</template>
+
+<script>
+  export default {
+    props: {
+      row: {
+        type: String,
+        default: '',
+        required: false
+      },
+      sm: {
+        type: String,
+        default: '',
+        required: false
+      },
+      md: {
+        type: String,
+        default: '',
+        required: false
+      },
+      lg: {
+        type: String,
+        default: '',
+        required: false
+      },
+      xl: {
+        type: String,
+        default: '',
+        required: false
+      },
+      noGutters: {
+        type: Boolean,
+        default: false,
+        required: false
+      },
+      flexGrow: {
+        type: Number,
+        default: -1,
+        required: false
+      }
+    },
+    computed: {
+      classes () {
+        let props = this._props
+        let classes = Object.keys(props).filter(prop => {
+          return props[prop].length > 0 && !['noGutters'].includes(prop)
+        })
+        let list = []
+        classes.forEach((x) => {
+          list.push(`${x}-${props[x]}`)
+        })
+        if (props.noGutters) {
+          list.push('row-flush')
+        }
+        return list.join(' ')
+      },
+      styles () {
+        let styles = {}
+        if (this.flexGrow >= 0) {
+          styles['flex'] = `${this.flexGrow} 0 auto`
+        }
+        return styles
+      }
+    }
+  }
+</script>
+
+<style>
+
+</style>
