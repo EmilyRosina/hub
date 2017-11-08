@@ -6,12 +6,15 @@ import mutations from './mutations'
 
 Vue.use(Vuex)
 
-export const store = new Vuex.Store({
+const store = new Vuex.Store({
   state: {
     stuff: [],
-    test: 'test name'
+    test: 'test name',
+    width: 0
   },
   getters,
   mutations,
   actions
 })
+
+export default store

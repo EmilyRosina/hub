@@ -60,8 +60,13 @@
           return props[prop].length > 0
         })
         let list = []
+        let breakpoints = ['xs', 'sm', 'md', 'lg', 'xl']
         classes.forEach((x) => {
-          list.push(`${x}-${props[x]}`)
+          if (breakpoints.includes(x)) {
+            list.push(`col-${x}-${props[x]}`)
+          } else {
+            list.push(`${x}-${props[x]}`)
+          }
         })
         return list.join(' ')
       }

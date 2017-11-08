@@ -3,7 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import { store } from './store/store'
+import store from './store/store'
+// import breakpoints from './store/utility/breakpoints'
 import 'nm/shoelace-css/dist/shoelace.css'
 import '@/assets/styles/css/main.css'
 
@@ -15,5 +16,11 @@ new Vue({
   router,
   template: '<App/>',
   components: { App },
-  store
+  store,
+  mounted () {
+    this.$store.commit('set_width', window.innerWidth)
+    window.addEventListener('resize', () => {
+      this.$store.commit('set_width', window.innerWidth)
+    })
+  }
 })
