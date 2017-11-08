@@ -1,8 +1,9 @@
 {
-  "name": "y",
+  "name": "emilyrosina.github.io",
   "version": "1.0.0",
   "description": "A Vue.js project for GitHub pages",
   "author": "Emily Carey <emilyrosinacarey@gmail.com>",
+  "homepage": "https://emilyrosina.github.io/my-app",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
@@ -11,13 +12,15 @@
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
-    "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
+    "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
+    "deploy": "node ./node_modules/vue-gh-pages/index.js"
   },
   "dependencies": {
     "node-sass": "^4.5.3",
     "sass-loader": "^6.0.6",
     "shoelace-css": "^1.0.0-beta24",
     "vue": "^2.5.2",
+    "vue-gh-pages": "^1.6.2",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },

@@ -1,4 +1,4 @@
-# y
+# My Github pages project
 
 > A Vue.js project for GitHub pages
 
