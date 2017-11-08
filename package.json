@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A Vue.js project for GitHub pages",
   "author": "Emily Carey <emilyrosinacarey@gmail.com>",
-  "homepage": "https://emilyrosina.github.io/my-app",
+  "homepage": "https://emilyrosina.github.io/hub",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",

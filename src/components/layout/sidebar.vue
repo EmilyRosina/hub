@@ -1,5 +1,5 @@
 <template>
-  <sl-col col="12" md="4" lg="3" xl="2" id="sidebar">
+  <sl-col col="12" xs="12" md="4" lg="3" xl="2" id="sidebar">
     <p>// sidebar //</p>
     <p>...logo to go here...</p>
     <p>...navigation to go here...</p>
