@@ -4,11 +4,14 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store/store'
+import 'vue-awesome/icons'
+import Icon from 'vue-awesome/components/Icon'
 // import breakpoints from './store/utility/breakpoints'
 import 'nm/shoelace-css/dist/shoelace.css'
 import '@/assets/styles/css/main.css'
 
 Vue.config.productionTip = false
+Vue.component('icon', Icon)
 
 /* eslint-disable no-new */
 new Vue({

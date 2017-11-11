@@ -20,6 +20,7 @@
     "sass-loader": "^6.0.6",
     "shoelace-css": "^1.0.0-beta24",
     "vue": "^2.5.2",
+    "vue-awesome": "^2.3.4",
     "vue-gh-pages": "^1.6.2",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
