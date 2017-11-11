@@ -1,14 +1,26 @@
 <template>
-  <sl-row id="nav" type="flex">
+  <sl-row id="nav" type="flex" noGutters>
     <template v-if="['xs', 'sm'].includes(breakpoint)">
-      <sl-col><icon name="bars"></icon></sl-col>
-      <sl-col>Page Title</sl-col>
-      <sl-col><icon name="search"></icon></sl-col>
+      <sl-col flex>
+        <icon name="bars" class="nav-link"></icon>
+      </sl-col>
+      <sl-col flex align="center">
+        <span class="nav-link">Page Title</span>
+      </sl-col>
+      <sl-col flex align="end">
+        <icon name="search" class="nav-link"></icon>
+      </sl-col>
     </template>
     <template v-else>
-      <sl-col>Menu stuff</sl-col>
-      <sl-col>Page Title</sl-col>
-      <sl-col>Search stuff</sl-col>
+      <sl-col flex col="1">
+        <span class="nav-link">Site Icon</span>
+      </sl-col>
+      <sl-col flex grow="2" align="center">
+        <span class="nav-link">Page Title</span>
+      </sl-col>
+      <sl-col flex grow="1" align="end">
+        <span class="nav-link">Nav Links</span>
+      </sl-col>
     </template>
   </sl-row>
 </template>
@@ -18,11 +30,6 @@
   import slContainer from 'shoelace/container.vue'
   import slRow from 'shoelace/row.vue'
   import slCol from 'shoelace/col.vue'
-
-  // let screen = {
-  //   width: window.innerWidth,
-  //   height: window.innerHeight
-  // }
 
   export default {
     components: {
@@ -43,8 +50,33 @@
 </script>
 
 <style lang="scss" scoped>
+  @mixin pointer {
+    cursor: pointer;
+  }
   #nav {
     background-color: black;
     border: none;
+    color: #ddd;
+    font-size: 1.25rem;
+    height: 4.35rem;
+    .col {
+      padding: 0 1rem;
+      &:hover,
+      &:focus {
+        @include pointer;
+        color: white;
+        font-size: 1.35rem;
+      }
+      &:nth-child(1) {
+        text-align: left;
+      }
+      &:nth-child(2) {
+        text-align: center;
+      }
+      &:nth-child(3) {
+        text-align: right;
+      }
+    }
   }
-</style>
+
+  </style>
