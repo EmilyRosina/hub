@@ -1,7 +1,7 @@
 <template>
   <sl-container id="welcome" fullWidth fullHeight>
+    <topNav></topNav>
     <sl-row noGutters :flexGrow="1">
-      <sidebar></sidebar>
       <sl-col>
         <sl-container fullWidth fullHeight>
           <sl-row noGutters :flexGrow="1">
@@ -26,6 +26,7 @@
   import slRow from 'shoelace/row'
   import slCol from 'shoelace/col'
   import sidebar from '@/components/layout/sidebar'
+  import topNav from '@/components/layout/nav'
 
   export default {
     name: 'Welcome',
@@ -38,7 +39,8 @@
       slContainer,
       slRow,
       slCol,
-      sidebar
+      sidebar,
+      topNav
     }
   }
 </script>

@@ -1,12 +1,20 @@
 <template>
-  <sl-col md="12" lg="4" xl="2" id="sidebar">
-    <p>// sidebar //</p>
-    <p>...logo to go here...</p>
-    <p>...navigation to go here...</p>
-  </sl-col>
+  <sl-row id="nav" type="flex">
+    <template v-if="['xs', 'sm'].includes(breakpoint)">
+      <sl-col><icon name="bars"></icon></sl-col>
+      <sl-col>Page Title</sl-col>
+      <sl-col><icon name="search"></icon></sl-col>
+    </template>
+    <template v-else>
+      <sl-col>Menu stuff</sl-col>
+      <sl-col>Page Title</sl-col>
+      <sl-col>Search stuff</sl-col>
+    </template>
+  </sl-row>
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
   import slContainer from 'shoelace/container.vue'
   import slRow from 'shoelace/row.vue'
   import slCol from 'shoelace/col.vue'
@@ -26,6 +34,7 @@
       console.log(this)
     },
     computed: {
+      ...mapGetters(['breakpoint']),
       screenSize () {
         return this.$el.clientWidth
       }
@@ -34,7 +43,7 @@
 </script>
 
 <style lang="scss" scoped>
-  #sidebar {
+  #nav {
     background-color: black;
     border: none;
   }
