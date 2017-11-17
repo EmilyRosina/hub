@@ -1,6 +1,3 @@
-// Polyfill fix for IE (https://github.com/stefanpenner/es6-promise#auto-polyfill) (https://github.com/vuejs-templates/webpack/issues/474)
-import 'es6-promise/auto'
-
 import Vue from 'vue'
 import Vuex from 'vuex'
 import getters from './getters'

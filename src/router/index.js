@@ -5,7 +5,8 @@ import Welcome from '@/views/Welcome'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
+  // doesn't work for github pages... because stupid!
+  // mode: 'history',
   routes: [
     {
       path: '/',

@@ -1,3 +1,6 @@
+// Polyfill fix for IE (https://github.com/stefanpenner/es6-promise#auto-polyfill) (https://github.com/vuejs-templates/webpack/issues/474)
+// import 'es6-promise/auto'
+
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
