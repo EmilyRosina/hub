@@ -146,29 +146,26 @@
         z-index: 5;
         padding: 1.25rem;
         background-image: linear-gradient(#00436f, #1b203d);
-        clip-path: circle(2.75rem at 2.75rem 2.75rem);
         width: 1em;
         height: 1em;
         color: #039170;
         transition: 0.1s;
+        clip-path: circle(50% at 50% 50%);
+        /* IE only... */
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+          border-radius: 50%;
+        }
         &:hover {
           width: 1.1em;
           height: 1.1em;
-          clip-path: circle(2.9rem at 2.9rem 2.9rem);
           margin: -0.15rem 1.35rem;
+          clip-path: circle(50% at 50% 50%);
+          /* IE only... */
+          @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+            border-radius: 50%;
+          }
         }
       }
-      // &.icon-wrapper {
-      //   padding: 0.5rem;
-      //   background-color: #1b203d;
-      //   background-image: linear-gradient(#00436f, #1b203d);
-      //   border-radius: 50%;
-      //   width: 5.5rem;
-      //   height: 5.5rem;
-      //   display: flex;
-      //   justify-content: center;
-      //   align-items: center;
-      // }
     }
   }
   .below {
@@ -193,6 +190,14 @@
         width: 15rem;
         opacity: 0.2;
         position: absolute;
+        /* IE only... */
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          margin: auto;
+        }
       }
     }
 
