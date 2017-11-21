@@ -8,9 +8,7 @@
 </template>
 
 <script>
-  import slContainer from 'shoelace/container'
-  import slRow from 'shoelace/row'
-  import slCol from 'shoelace/col'
+
   import sidebar from '@/components/layout/sidebar'
   import topNav from '@/components/layout/nav'
 
@@ -22,9 +20,6 @@
       }
     },
     components: {
-      slContainer,
-      slRow,
-      slCol,
       sidebar,
       topNav
     }

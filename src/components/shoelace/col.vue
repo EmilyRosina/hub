@@ -58,8 +58,8 @@
         required: false
       },
       grow: {
-        type: Number,
-        default: 0,
+        type: String,
+        default: '',
         required: false
       },
       align: {
@@ -70,6 +70,11 @@
       justify: {
         type: String,
         default: 'center',
+        required: false
+      },
+      noGutters: {
+        type: Boolean,
+        default: false,
         required: false
       }
     },
@@ -115,6 +120,9 @@
         if (props.flex) {
           list.push('col-flex')
         }
+        if (props.noGutters) {
+          list.push('col-no-gutters')
+        }
         this.flexClasses.forEach(x => {
           list.push(`col-flex-${x}-${props[x].toString()}`)
         })
@@ -125,6 +133,9 @@
 </script>
 
 <style lang="scss" scoped>
+  .col-no-gutters {
+    padding: 0;
+  }
   .col-flex {
     display: flex;
     flex-direction: column;
@@ -152,30 +163,20 @@
     }
     &-grow {
       &-1 {
-        flex: 1 0 auto;
+        flex: 1 1 auto;
       }
       &-2 {
-        flex: 1 0 auto;
+        flex: 2 1 auto;
       }
       &-3 {
-        flex: 1 0 auto;
+        flex: 3 1 auto;
       }
       &-4 {
-        flex: 1 0 auto;
+        flex: 4 1 auto;
       }
       &-5 {
-        flex: 1 0 auto;
+        flex: 5 1 auto;
       }
     }
   }
-  /* .row {
-    background-color: #ccc;
-  }
-  .col {
-    padding: 0.5em;
-    background: dodgerblue;
-    color: white;
-    text-align: center;
-    border: 2px solid white;
-  } */
 </style>

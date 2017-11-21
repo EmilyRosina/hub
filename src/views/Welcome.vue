@@ -2,7 +2,7 @@
   <sl-container id="welcome" fullWidth fullHeight>
     <sl-row noGutters :flexGrow="1" class="above" :style="{background: `url(${imgPaths.bg.dev})`}">
       <sl-col flex align="center">
-        <p class="page-title">Welcome</p>
+        <p :class="['page-title', {'mobile': isMobile}]">Welcome</p>
       </sl-col>
     </sl-row>
     <sl-row noGutters :flexGrow="1" :class="['middle', {'mobile': isMobile}]">
@@ -14,11 +14,12 @@
         :name="link.icon"
         :style="link.style"
         @mouseover.native="setMessageText(link.key)"
-        @mouseout.native="hideMessageText()"></icon>
+        @mouseout.native="hideMessageText()"
+        @click.native="routeTo(link.key, link.navTo)"></icon>
     </sl-row>
     <sl-row noGutters :flexGrow="1" class="below">
       <sl-col flex align="center" :class="[{'hidden': !message.show}]">
-        <p class="link-message">{{ linkMessage }}</p>
+        <p :class="['link-message', {mobile: isMobile}]">{{ linkMessage }}</p>
         <img :src="imgPaths.doodle.dev" />
       </sl-col>
     </sl-row>
@@ -26,9 +27,6 @@
 </template>
 
 <script>
-  import slContainer from 'shoelace/container'
-  import slRow from 'shoelace/row'
-  import slCol from 'shoelace/col'
   import sidebar from '@/components/layout/sidebar'
   import topNav from '@/components/layout/nav'
   import bgImg from '@/assets/images/aurorabg.jpg'
@@ -57,39 +55,19 @@
           about: 'learn more about... moi!',
           inception: 'wanna know more about how this site?',
           courses: 'who needs a degree in CS?!'
-        },
-        links: [
-          {
-            key: 'blog',
-            icon: 'quote-left',
-            style: ''
-          },
-          {
-            key: 'about',
-            icon: 'star',
-            style: ''
-          },
-          {
-            key: 'inception',
-            icon: 'puzzle-piece',
-            style: ''
-          },
-          {
-            key: 'courses',
-            icon: 'book',
-            style: ''
-          }
-        ]
+        }
       }
     },
     components: {
-      slContainer,
-      slRow,
-      slCol,
       sidebar,
       topNav
     },
     methods: {
+      routeTo (route, navTo) {
+        if (navTo) {
+          this.$router.push(route)
+        }
+      },
       setMessageText (link) {
         this.message.show = true
         this.message.text = this.linkMessages[link]
@@ -100,6 +78,9 @@
       }
     },
     computed: {
+      links () {
+        return this.$store.state.navLinks
+      },
       linkMessage () {
         return this.message.show ? this.message.text : undefined
       },
@@ -124,6 +105,9 @@
       font-size: 9em;
       text-align: center;
       text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
+      &.mobile {
+        font-size: 6em;
+      }
     }
   }
   .middle {
@@ -184,6 +168,9 @@
         font-family: NothingYouCouldDo, cursive;
         max-width: 30%;
         text-align: center;
+        &.mobile {
+          max-width: 70%;
+        }
       }
       img {
         transition: 0.5s;
