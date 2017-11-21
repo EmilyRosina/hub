@@ -4,15 +4,23 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store/store'
-import 'vue-awesome/icons'
 import Icon from 'vue-awesome/components/Icon'
-// import breakpoints from './store/utility/breakpoints'
-import 'nm/shoelace-css/dist/shoelace.css'
-import '@/assets/styles/css/main.css'
+import slContainer from '@/components/shoelace/container'
+import slRow from '@/components/shoelace/row'
+import slCol from '@/components/shoelace/col'
+
+require('nm/shoelace-css/dist/shoelace.css')
+require('@/assets/styles/css/main.css')
+require('vue-awesome/icons')
 
 Vue.use(require('vue-moment'))
 Vue.config.productionTip = false
 Vue.component('icon', Icon)
+
+// register my own shoelace components
+Vue.component('sl-container', slContainer)
+Vue.component('sl-row', slRow)
+Vue.component('sl-col', slCol)
 
 /* eslint-disable no-new */
 new Vue({
