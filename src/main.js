@@ -10,6 +10,7 @@ import Icon from 'vue-awesome/components/Icon'
 import 'nm/shoelace-css/dist/shoelace.css'
 import '@/assets/styles/css/main.css'
 
+Vue.use(require('vue-moment'))
 Vue.config.productionTip = false
 Vue.component('icon', Icon)
 
