@@ -37,6 +37,11 @@
         default: false,
         required: false
       },
+      noWrap: {
+        type: Boolean,
+        default: false,
+        required: false
+      },
       flexGrow: {
         type: Number,
         default: -1,
@@ -47,7 +52,7 @@
       classes () {
         let props = this._props
         let classes = Object.keys(props).filter(prop => {
-          return props[prop].length > 0 && !['noGutters'].includes(prop)
+          return props[prop].length > 0 && !['noGutters', 'noWrap'].includes(prop)
         })
         let list = []
         classes.forEach((x) => {
@@ -55,6 +60,9 @@
         })
         if (props.noGutters) {
           list.push('row-flush')
+        }
+        if (props.noWrap) {
+          list.push('row-nowrap')
         }
         return list.join(' ')
       },
@@ -69,6 +77,8 @@
   }
 </script>
 
-<style>
-
+<style scoped>
+  .row-nowrap {
+    flex-wrap: nowrap
+  }
 </style>

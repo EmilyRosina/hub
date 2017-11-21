@@ -1,5 +1,5 @@
 <template>
-  <div :class="['v-container', 'container', classes]">
+  <div :class="['v-container', classes]">
     <slot></slot>
   </div>
 </template>
@@ -35,6 +35,8 @@
         }
         if (props.fluid) {
           list.push('container-fluid')
+        } else {
+          list.push('container')
         }
         return list.join(' ')
       }
