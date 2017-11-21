@@ -1,25 +1,31 @@
 <template>
-  <sl-row id="nav" type="flex" noGutters>
+  <sl-row id="nav" type="flex" noGutters noWrap :class="{mobileNav: ['xs', 'sm'].includes(breakpoint), desktopNav: !['xs', 'sm'].includes(breakpoint)}">
     <template v-if="['xs', 'sm'].includes(breakpoint)">
       <sl-col flex>
-        <icon name="bars" class="nav-link"></icon>
+          <router-link to="/" class="nav-siteicon">
+            <img src="https://avatars1.githubusercontent.com/u/21045073" />
+          </router-link>
       </sl-col>
       <sl-col flex align="center">
-        <span class="nav-link">Page Title</span>
+        <span class="nav-pagetitle">{{ pageTitle }}</span>
       </sl-col>
       <sl-col flex align="end">
-        <icon name="search" class="nav-link"></icon>
+        <icon name="bars" class="nav-link"></icon>
       </sl-col>
     </template>
     <template v-else>
-      <sl-col flex col="1">
-        <span class="nav-link">Site Icon</span>
-      </sl-col>
-      <sl-col flex grow="2" align="center">
-        <span class="nav-link">Page Title</span>
+      <sl-col flex col="3">
+        <sl-row style="margin: inherit;">
+          <router-link to="/" class="nav-siteicon">
+            <img src="https://avatars1.githubusercontent.com/u/21045073" />
+          </router-link>
+          <span class="nav-pagetitle">{{ pageTitle }}</span>
+        </sl-row>
       </sl-col>
       <sl-col flex grow="1" align="end">
-        <span class="nav-link">Nav Links</span>
+        <sl-row noGutters class="nav-links">
+          <span v-for="link in navLinks" :key="link.key" class="nav-link">{{ link.key }}</span>
+        </sl-row>
       </sl-col>
     </template>
   </sl-row>
@@ -44,6 +50,12 @@
       ...mapGetters(['breakpoint']),
       screenSize () {
         return this.$el.clientWidth
+      },
+      pageTitle () {
+        return this.$route.name
+      },
+      navLinks () {
+        return this.$store.state.navLinks.filter(link => link.key !== this.$route.name.toLowerCase())
       }
     }
   }
@@ -54,27 +66,59 @@
     cursor: pointer;
   }
   #nav {
-    background-color: black;
+    &.mobileNav {
+      .nav-link {
+        &:nth-child(1) {
+          text-align: left;
+        }
+        &:nth-child(2) {
+          text-align: center;
+        }
+        &:nth-child(3) {
+          text-align: right;
+        }
+      }
+    }
+    &.desktopNav {
+      .nav-links {
+        align-items: center;
+        justify-content: flex-end;
+        width: 100%;
+        flex: 1 0 auto;
+        .nav-link {
+          padding-left: 2rem;
+        }
+      }
+    }
+    background-color: rgba(0, 0, 0, 0.5);
     border: none;
     color: #ddd;
-    font-size: 1.25rem;
+    font-size: 1rem;
     height: 4.35rem;
     .col {
       padding: 0 1rem;
-      &:hover,
-      &:focus {
+      .nav-siteicon {
+        width: 2.5rem;
         @include pointer;
-        color: white;
-        font-size: 1.35rem;
+        img {
+          border-radius: 10%;
+        }
       }
-      &:nth-child(1) {
-        text-align: left;
+      .nav-pagetitle {
+        font-family: NothingYouCouldDo, cursive;
+        color:#0A8FBD;
+        font-weight: 800;
+        font-size: 1.75rem;
+        padding-left: 1rem;
+        align-self: center;
       }
-      &:nth-child(2) {
-        text-align: center;
-      }
-      &:nth-child(3) {
-        text-align: right;
+      .nav-link {
+        &:hover,
+        &:focus {
+          @include pointer;
+          color: white;
+          font-size: 1.1rem;
+        }
       }
     }
   }
