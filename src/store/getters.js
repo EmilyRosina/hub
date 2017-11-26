@@ -15,8 +15,10 @@ export default {
       }
     } while (breakpoint === '')
     return breakpoint
+  },
+  api () {
+    return {
+      treehouse: 'https://teamtreehouse.com/emilycarey.json'
+    }
   }
-  // get_breakpoint_byWidth (state) => {(width) => {
-  //   return width
-  // }
 }

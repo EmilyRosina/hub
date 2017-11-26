@@ -16,6 +16,7 @@
     "deploy": "node ./node_modules/vue-gh-pages/index.js"
   },
   "dependencies": {
+    "axios": "^0.17.1",
     "babel-polyfill": "^6.26.0",
     "es6-promise": "^4.1.1",
     "node-sass": "^4.5.3",

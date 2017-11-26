@@ -7,5 +7,15 @@ export default {
   },
   set_test (state, value) {
     state.test = value
+  },
+  set_treehouse_data (state, payload) {
+    state.treehouse.badges = payload.badges
+    let points = []
+    Object.keys(payload.points).forEach(key => {
+      if (payload.points[key] !== 0) {
+        points.push({ skill: key, points: payload.points[key] })
+      }
+    })
+    state.treehouse.points = points
   }
 }
