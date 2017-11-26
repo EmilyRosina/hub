@@ -53,7 +53,7 @@
   .points-col {
     color: white;
     text-align: center;
-    height: 6em;
+    height: 5em;
     justify-content: space-between;
   }
 
@@ -62,14 +62,14 @@
     font-weight: 600;
     text-shadow: 3px 3px 10px rgba(0,0,0,0.9);
     color: skyblue;
-    margin-bottom: 0.25em;
+    margin-bottom: 0.25rem;
     align-self: flex-start;
     text-align: left;
   }
   .points {
     font-size: 1.75rem;
     font-weight: 200;
-    margin: 0;
+    margin-top: auto;
     background-color: rgba(0,0,0,0.25);
     width: 100%;
     border-radius: 1em;
