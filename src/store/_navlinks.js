@@ -18,10 +18,10 @@ const navLinks = [
     navTo: false
   },
   {
-    key: 'courses',
+    key: 'skills',
     icon: 'book',
     style: '',
-    navTo: false
+    navTo: true
   }
 ]
 

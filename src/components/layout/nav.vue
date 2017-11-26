@@ -24,7 +24,10 @@
       </sl-col>
       <sl-col flex grow="1" align="end">
         <sl-row noGutters class="nav-links">
-          <span v-for="link in navLinks" :key="link.key" class="nav-link">{{ link.key }}</span>
+          <template v-for="link in navLinks">
+            <router-link :key="link.key" v-if="link.navTo" class="nav-link" tag="span" :to="{ path: link.key }">{{ link.key }}</router-link>
+            <span v-else :key="link.key" class="nav-link">{{ link.key }}</span>
+          </template>
         </sl-row>
       </sl-col>
     </template>

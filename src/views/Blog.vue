@@ -1,5 +1,5 @@
 <template>
-  <sl-container id="blog" fullWidth fullHeight>
+  <sl-container id="blog" fullWidth fullHeight class="dark-bg">
     <topNav></topNav>
     <sl-row noGutters :flexGrow="1">
       <template v-if="['xs', 'sm'].includes(breakpoint)">
@@ -47,7 +47,7 @@
 </script>
 
 <style lang="scss" scoped>
-  #blog {
+  .dark-bg {
     background-color: #0c1540;
   }
 </style>

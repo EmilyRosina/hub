@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Welcome from '@/views/Welcome'
 import Blog from '@/views/Blog'
+import Skills from '@/views/Skills'
 
 Vue.use(Router)
 
@@ -18,6 +19,11 @@ export default new Router({
       path: '/blog',
       name: 'Blog',
       component: Blog
+    },
+    {
+      path: '/skills',
+      name: 'Skills',
+      component: Skills
     }
   ]
 })
