@@ -21,7 +21,7 @@
     "es6-promise": "^4.2.2",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
-    "shoelace-css": "^1.0.0-beta9",
+    "shoelace-css": "^1.0.0-beta24",
     "vue": "^2.5.13",
     "vue-awesome": "^2.3.4",
     "vue-gh-pages": "^1.7.1",
