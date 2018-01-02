@@ -46,9 +46,6 @@
       slRow,
       slCol
     },
-    mounted () {
-      console.log(this)
-    },
     computed: {
       ...mapGetters(['breakpoint']),
       screenSize () {

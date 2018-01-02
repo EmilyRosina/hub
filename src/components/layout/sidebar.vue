@@ -22,9 +22,6 @@
       slRow,
       slCol
     },
-    mounted () {
-      console.log(this)
-    },
     computed: {
       screenSize () {
         return this.$el.clientWidth
