@@ -1,4 +1,4 @@
-import breakpoints from './utility/breakpoints'
+import breakpoints from './utility/_breakpoints'
 // import actions from './actions'
 // import mutations from './mutations'
 

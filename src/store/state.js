@@ -1,5 +1,5 @@
-import blogPosts from './utility/blogposts'
-import navLinks from './utility/navlinks'
+import blogPosts from './utility/_blogposts'
+import navLinks from './utility/_navlinks'
 
 export default {
   width: 0,
