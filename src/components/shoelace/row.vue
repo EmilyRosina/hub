@@ -78,6 +78,10 @@
 </script>
 
 <style scoped>
+  .row {
+    display: flex;
+    justify-content: center;
+  }
   .row-nowrap {
     flex-wrap: nowrap
   }

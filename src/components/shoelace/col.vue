@@ -133,6 +133,11 @@
 </script>
 
 <style lang="scss" scoped>
+  .col {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
   .col-no-gutters {
     padding: 0;
   }
