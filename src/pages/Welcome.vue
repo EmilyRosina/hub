@@ -188,6 +188,15 @@
 
   /* --[ MOBILE ]-- */
   .mobile {
+    .above {
+      height: 45vh;
+    }
+    .middle {
+      top: calc(45vh - 2.5em);
+    }
+    .below {
+      height: 55vh;
+    }
     .page-title {
       font-size: 4.5em;
     }
