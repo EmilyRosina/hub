@@ -51,10 +51,10 @@
           }
         },
         linkMessages: {
-          blog: 'where i collect all my ramblings',
-          about: 'learn more about... moi!',
-          inception: 'wanna know more about this site?',
-          skills: 'who needs a degree in CS...'
+          blog: `where i collect all my ramblings`,
+          about: `learn more about... moi!`,
+          wip: `what am i upto?`,
+          skills: `who needs a degree in CS...`
         }
       }
     },

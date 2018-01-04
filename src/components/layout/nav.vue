@@ -14,7 +14,7 @@
       </sl-col>
     </template>
     <template v-else>
-      <sl-col flex col="3">
+      <sl-col flex col="4">
         <sl-row style="margin: inherit;">
           <router-link to="/" class="nav-siteicon">
             <img src="https://avatars1.githubusercontent.com/u/21045073" />
@@ -25,8 +25,8 @@
       <sl-col flex grow="1" align="end">
         <sl-row noGutters class="nav-links">
           <template v-for="link in navLinks">
-            <router-link :key="link.key" v-if="link.navTo" class="nav-link" tag="span" :to="{ path: link.key }">{{ link.key }}</router-link>
-            <span v-else :key="link.key" class="nav-link">{{ link.key }}</span>
+            <router-link :key="link.key" v-if="link.navTo" class="nav-link" tag="span" :to="{ path: link.key }">{{ link.text }}</router-link>
+            <span v-else :key="link.key" class="nav-link">{{ link.text }}</span>
           </template>
         </sl-row>
       </sl-col>

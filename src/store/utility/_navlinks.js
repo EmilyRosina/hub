@@ -1,24 +1,28 @@
 const navLinks = [
   {
     key: 'blog',
+    text: 'blog',
     icon: 'quote-left',
     style: '',
     navTo: true
   },
   {
     key: 'about',
+    text: 'about',
     icon: 'star',
     style: '',
-    navTo: false
+    navTo: true
   },
   {
-    key: 'inception',
-    icon: 'puzzle-piece',
+    key: 'wip',
+    text: `WIP`,
+    icon: 'check-square-o',
     style: '',
-    navTo: false
+    navTo: true
   },
   {
     key: 'skills',
+    text: 'skills',
     icon: 'book',
     style: '',
     navTo: true
