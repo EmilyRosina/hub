@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Welcome from '@/views/Welcome'
-import Blog from '@/views/Blog'
-import Skills from '@/views/Skills'
+import Welcome from '@/pages/Welcome'
+import Blog from '@/pages/Blog'
+import Skills from '@/pages/Skills'
 
 Vue.use(Router)
 

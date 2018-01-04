@@ -1,13 +1,23 @@
 <template>
   <main-layout id="Skills">
     <sl-row flex noGutters class="points-row">
-      <sl-col col="2" flex class="points-col" align="center" justify="end" v-for="point in treehouse.points" :key="point.skill">
+      <sl-col
+        col="12" sm="4" md="3" lg="2"
+        flex align="center" justify="end"
+        class="points-col"
+        v-for="point in treehouse.points"
+        :key="point.skill">
         <p class="skill">{{point.skill}}</p>
         <p :class="['points', { 'high': highPoints(point.points) }, { 'mid': midPoints(point.points) }, { 'low': lowPoints(point.points) }]">{{point.points}}</p>
       </sl-col>
     </sl-row>
     <sl-row flex noGutters class="wrapper-badges">
-      <sl-col flex col="2" justify="center" align="center" style="height: 5rem; padding: 0.5em; margin: 0.5em; border: 2px solid black; background-color: rgba(0,0,0,0.9); border-radius: 0.5em;" v-for="badge in treehouse.badges" :key="badge.id">
+      <sl-col
+        col="10" sm="5" md="3" xl="2"
+        flex justify="center" align="center"
+        class="th-badge"
+        v-for="badge in treehouse.badges"
+        :key="badge.id">
           <sl-row flex noGutters style="width: 100%;">
             <sl-col noGutters col="4"><a :href="badge.url"><img :src="badge.icon_url" style="max-height: 62.5px; max-width: 62.5px;" /></a></sl-col>
             <sl-col noGutters col="8" align="center"><a :href="badge.url"><span style="display: inline-block; font-size: 0.8rem; color: #eee;">{{ badge.name }}</span></a></sl-col>
@@ -86,5 +96,14 @@
 
   .wrapper-badges {
     justify-content: center;
+  }
+
+  .th-badge {
+    height: 5rem;
+    padding: 0.5em;
+    margin: 0.5em;
+    border: 2px solid black;
+    background-color: rgba(0,0,0,0.9);
+    border-radius: 0.5em;
   }
 </style>

@@ -28,7 +28,7 @@
   import { mapGetters } from 'vuex'
   import sidebar from '@/components/layout/sidebar'
   import topNav from '@/components/layout/nav'
-  import blogPost from '@/components/blogPost'
+  import blogPost from '@/components/BlogPost'
 
   export default {
     name: 'Welcome',
