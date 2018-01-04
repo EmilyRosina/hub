@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :class="'mobile', isMobile">
     <router-view />
   </div>
 </template>
@@ -9,6 +9,11 @@
     name: 'app',
     mounted () {
       this.$store.dispatch('GET_TREEHOUSE_DATA')
+    },
+    computed: {
+      isMobile () {
+        return this.$store.getters.breakpoint === 'xs'
+      }
     }
   }
 </script>
