@@ -2,10 +2,10 @@
   <sl-container id="welcome" fullWidth fullHeight>
     <sl-row noGutters :flexGrow="1" class="above" :style="{background: `url(${imgPaths.bg.dev})`}">
       <sl-col flex align="center">
-        <p :class="['page-title', {'mobile': isMobile}]">Welcome</p>
+        <p class="page-title">Welcome</p>
       </sl-col>
     </sl-row>
-    <sl-row noGutters :flexGrow="1" :class="['middle', {'mobile': isMobile}]">
+    <sl-row noGutters :flexGrow="1" class="middle">
       <icon
         v-for="link in links"
         :key="link.key"
@@ -19,8 +19,8 @@
     </sl-row>
     <sl-row noGutters :flexGrow="1" class="below">
       <sl-col flex align="center" :class="[{'hidden': !message.show}]">
-        <p :class="['link-message', {mobile: isMobile}]">{{ linkMessage }}</p>
-        <img :src="imgPaths.doodle.dev" />
+        <p class="link-message">{{ linkMessage }}</p>
+        <img class="doodle" :src="imgPaths.doodle.dev" />
       </sl-col>
     </sl-row>
   </sl-container>
@@ -83,9 +83,6 @@
       },
       linkMessage () {
         return this.message.show ? this.message.text : undefined
-      },
-      isMobile () {
-        return ['xs', 'sm'].includes(this.$store.getters.breakpoint)
       }
     }
   }
@@ -157,9 +154,9 @@
       opacity: 1;
       font-size: 1rem;
       &.hidden {
-        img {
+        .doodle {
           opacity: 1;
-          width: 25rem;
+          width: 25em;
         }
       }
       .link-message {
@@ -187,6 +184,29 @@
         }
       }
     }
+  }
 
+  /* --[ MOBILE ]-- */
+  .mobile {
+    .page-title {
+      font-size: 4.5em;
+    }
+    .below .col.hidden .doodle {
+      width: 20em;
+    }
+    .link.icon {
+      height: 1em;
+      font-size: 2em !important;
+      margin: 0 0.2em;
+      &:hover {
+        margin: -0.25rem 0.2em;
+        height: 1.25em;
+        width: 1.25em;
+      }
+    }
+    .below .col .link-message {
+      font-size: 2.25rem;
+      max-width: 70%;
+    }
   }
 </style>

@@ -2,7 +2,7 @@
   <main-layout id="Skills">
     <sl-row flex noGutters class="points-row">
       <sl-col
-        col="12" sm="4" md="3" lg="2"
+        col="6" sm="4" md="3" lg="2"
         flex align="center" justify="end"
         class="points-col"
         v-for="point in treehouse.points"
@@ -19,8 +19,12 @@
         v-for="badge in treehouse.badges"
         :key="badge.id">
           <sl-row flex noGutters style="width: 100%;">
-            <sl-col noGutters col="4"><a :href="badge.url"><img :src="badge.icon_url" style="max-height: 62.5px; max-width: 62.5px;" /></a></sl-col>
-            <sl-col noGutters col="8" align="center"><a :href="badge.url"><span style="display: inline-block; font-size: 0.8rem; color: #eee;">{{ badge.name }}</span></a></sl-col>
+            <sl-col noGutters col="4">
+              <a :href="badge.url"><img :src="badge.icon_url" class="th-badge-icon"/></a>
+            </sl-col>
+            <sl-col noGutters col="8" align="center">
+              <a :href="badge.url"><span class="th-badge-text">{{ badge.name }}</span></a>
+            </sl-col>
           </sl-row>
       </sl-col>
     </sl-row>
@@ -105,5 +109,36 @@
     border: 2px solid black;
     background-color: rgba(0,0,0,0.9);
     border-radius: 0.5em;
+    &-icon {
+      max-height: 62.5px;
+      max-width: 62.5px;
+    }
+    &-text {
+      display: inline-block;
+      font-size: 0.8rem;
+      color: #eee;
+    }
+  }
+
+  /* --[ MOBILE ]-- */
+  .mobile {
+    .points-row {
+      margin: 2em 1em;
+      .points-col  {
+        height: 4em;
+        .skill {
+          font-size: 0.8rem;
+        }
+        .points {
+          font-size: 1.25rem;
+          margin-top: 0.1em;
+        }
+      }
+    }
+    .th-badge {
+      &-text {
+        font-size: 0.9rem;
+      }
+    }
   }
 </style>
