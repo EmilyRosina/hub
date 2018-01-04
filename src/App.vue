@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :class="'mobile', isMobile">
+  <div id="app" :class="{'mobile': isMobile}">
     <router-view />
   </div>
 </template>
