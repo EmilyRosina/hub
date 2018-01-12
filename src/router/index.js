@@ -10,7 +10,7 @@ Vue.use(Router)
 
 export default new Router({
   // doesn't work for github pages... because stupid!
-  // mode: 'history',
+  mode: 'history',
   routes: [
     {
       path: '/',
