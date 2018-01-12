@@ -1,6 +1,8 @@
 <template>
   <div id="app" :class="{'mobile': isMobile}">
-    <router-view />
+    <transition name="fade" mode="out-in" appear>
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -34,5 +36,13 @@
     max-width: 100vw;
     display: flex;
     flex-direction: column;
+    background: black;
+  }
+
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity 0.1s;
+  }
+  .fade-enter, .fade-leave-active {
+    opacity: 0.5;
   }
 </style>

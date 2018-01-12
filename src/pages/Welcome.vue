@@ -150,6 +150,7 @@
     }
   }
   .below {
+    background: white;
     .col {
       opacity: 1;
       font-size: 1rem;
