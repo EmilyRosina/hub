@@ -1,6 +1,4 @@
 import breakpoints from './utility/_breakpoints'
-// import actions from './actions'
-// import mutations from './mutations'
 
 export default {
   breakpoint (state) {

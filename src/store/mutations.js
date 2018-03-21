@@ -5,9 +5,6 @@ export default {
   set_breakpoint (state, breakpoint) {
     state.breakpoint = breakpoint
   },
-  set_test (state, value) {
-    state.test = value
-  },
   set_treehouse_data (state, payload) {
     state.treehouse.badges = payload.badges
     let points = []

@@ -9,14 +9,5 @@ export default {
       .catch(error => {
         console.error(error)
       })
-  },
-  GET_TEST ({ commit, getters }) {
-    axios.get('https://teamtreehouse.com/library/how-to-make-a-website#debugging-html-and-css-problems')
-      .then(response => {
-        commit('set_test', response.data)
-      })
-      .catch(error => {
-        console.error(error)
-      })
   }
 }

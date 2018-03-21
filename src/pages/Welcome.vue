@@ -1,222 +1,226 @@
 <template>
-  <sl-container id="welcome" fullWidth fullHeight>
-    <sl-row noGutters :flexGrow="1" class="above" :style="{background: `url(${imgPaths.bg.dev})`}">
-      <sl-col flex align="center">
-        <p class="page-title">Welcome</p>
+  <sl-container id="welcome" fullWidth fullHeight class="background-img">
+    <sl-row noGutters :flexGrow="1">
+      <sl-col flex align="center" col="12" md="6">
+        <div class="avatar"></div>
+        <div class="intro-text">
+          <h4 class="intro-text__name">Emily Rosina Carey</h4>
+          <h5 class="intro-text__role">Front-end Developer</h5>
+        </div>
+        <sl-row>
+          <a v-for="(link, key) in socialLinks" :key="key" :href="link.href" class="social-link">
+            <icon :name="link.icon" scale="1.5"></icon>
+          </a>
+        </sl-row>
       </sl-col>
-    </sl-row>
-    <sl-row noGutters :flexGrow="1" class="middle">
-      <icon
-        v-for="link in links"
-        :key="link.key"
-        class="link icon"
-        scale="3"
-        :name="link.icon"
-        :style="link.style"
-        @mouseover.native="setMessageText(link.key)"
-        @mouseout.native="hideMessageText()"
-        @click.native="routeTo(link.key, link.navTo)"></icon>
-    </sl-row>
-    <sl-row noGutters :flexGrow="1" class="below">
-      <sl-col flex align="center" :class="[{'hidden': !message.show}]">
-        <p class="link-message">{{ linkMessage }}</p>
-        <img class="doodle" :src="imgPaths.doodle.dev" />
+      <sl-col flex align="center" col="12" md="6">
+
+        <div noGutters v-for="(repo, key) in repos" :key="key" class="repo">
+          <sl-row class="repo__title-bar" noGutters>
+            <h2 class="repo__title">{{ repo.title }}</h2>
+            <sl-row noGutters class="repo__links">
+              <span class="repo__link repo__link--wip" v-if="repo.wip">WIP</span>
+              <a class="repo__link" :href="repo.links.github"><icon name="github" alt="source code" scale="2"></icon></a>
+              <a class="repo__link" :href="repo.links.live"><icon name="globe" alt="live site" scale="2"></icon></a>
+            </sl-row>
+          </sl-row>
+          <p class="repo__description">{{ repo.description }}</p>
+          <p>
+            <span v-for="(tag, index) in repo.tags" :key="index" class="tag">{{ tag }}</span>
+          </p>
+        </div>
+
       </sl-col>
     </sl-row>
   </sl-container>
 </template>
 
 <script>
-  import sidebar from '@/components/layout/sidebar'
-  import topNav from '@/components/layout/nav'
-  import bgImg from '@/assets/images/aurorabg.jpg'
-  import doodleImg from '@/assets/images/coding.png'
-
   export default {
     name: 'Welcome',
     data () {
       return {
-        message: {
-          show: false,
-          text: ''
-        },
-        imgPaths: {
-          bg: {
-            web: 'https://emilyrosina.github.io/hub/static/img/aurora.858f10c.jpg',
-            dev: bgImg
+        socialLinks: {
+          linkedin: {
+            icon: 'linkedin',
+            href: 'https://www.linkedin.com/in/emilyrosinacarey/'
           },
-          doodle: {
-            web: 'https://emilyrosina.github.io/hub/static/img/coding.5e93ba7.png',
-            dev: doodleImg
+          github: {
+            icon: 'github',
+            href: 'https://github.com/EmilyRosina'
+          },
+          email: {
+            icon: 'envelope',
+            href: 'mailto:emilyrc.jobs@gmail.com'
           }
         },
-        linkMessages: {
-          blog: `where i collect all my ramblings`,
-          about: `learn more about... moi!`,
-          wip: `what am i upto?`,
-          skills: `who needs a degree in CS...`
+        repos: {
+          pokedex: {
+            title: 'Pokedex',
+            description: `Mini web app to search through 1st gen Pokemon and show details, cards and sprites for selected/random pokemon.`,
+            links: {
+              github: 'https://github.com/EmilyRosina/pokedex',
+              live: 'https://emilyrosina.github.io/pokedex'
+            },
+            tags: [
+              'vue',
+              'sass',
+              'api',
+              'github pages'
+            ],
+            wip: true
+          },
+          userStoryBuilder: {
+            title: 'User Story Builder',
+            description: `Simple web app helping to list data structures when building a product.
+            Then using those structures to create user stories.`,
+            links: {
+              github: 'https://github.com/EmilyRosina/user-story-builder',
+              live: 'https://emilyrosina.github.io/user-story-builder/'
+            },
+            tags: [
+              'vue',
+              'sass',
+              'github pages'
+            ],
+            wip: true
+          },
+          shoelaceVue: {
+            title: 'Shoelace-Vue',
+            description: `My attempt at creating a vue component library for shoelace components.`,
+            links: {
+              github: 'https://github.com/EmilyRosina/shoelace-vue',
+              live: 'https://emilyrosina.github.io/shoelace-vue'
+            },
+            tags: [
+              'vue',
+              'sass',
+              'vue plugin',
+              'lib',
+              'npm registry'
+            ],
+            wip: true
+          }
         }
-      }
-    },
-    components: {
-      sidebar,
-      topNav
-    },
-    methods: {
-      routeTo (route, navTo) {
-        if (navTo) {
-          this.$router.push(route)
-        }
-      },
-      setMessageText (link) {
-        this.message.show = true
-        this.message.text = this.linkMessages[link]
-      },
-      hideMessageText () {
-        this.message.show = false
-        this.message.text = undefined
-      }
-    },
-    computed: {
-      links () {
-        return this.$store.state.navLinks
-      },
-      linkMessage () {
-        return this.message.show ? this.message.text : undefined
       }
     }
   }
 </script>
 
 <style lang="scss" scoped>
-  .above,
-  .below {
-    height: 50vh;
+  .background-img {
+    background: #02050F;
+    background-image: url('../assets/images/background_galaxy.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
   }
-  .above {
-    // background: url('../assets/images/aurorabg.png');
-    background-size: cover;
-    box-shadow: 0 4px 60px -2px rgba(0, 0, 0, 0.35), 0 4px 10px -2px rgba(0, 0, 0, 0.35);
-    .page-title {
-      color: white;
-      font-size: 9em;
-      text-align: center;
-      text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
-      &.mobile {
-        font-size: 6em;
-      }
+  .avatar {
+    background-image: url('../assets/images/avatar.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 15em;
+    width: 15em;
+    border-radius: 50%;
+    transform: rotate(12deg);
+  }
+  .intro-text {
+    padding-top: 1em;
+    color: deepskyblue;
+    text-align: center;
+    &__name {
+      font-family: "Dancing Script";
+      font-size: 2rem;
+      background: transparentize(black, 0.25);
+      padding: 0.25em 1em 0.45em;
+      clip-path: polygon(
+        5% 8%,
+        100% 1%,
+        92% 95%,
+        7% 89%
+      );
+    }
+    &__role {
+      padding: 0.5em;
+      margin-top: -1.25em;
+      font-size: 0.8rem;
+      color: #222;
+      text-transform: uppercase;
+      font-weight: 700;
+      background:#00c180;
+      clip-path: polygon(
+        0% 0%,
+        100% 1%,
+        92% 95%,
+        7% 85%
+      );
+      box-shadow: 1px 1px 10px white;
+    }
+
+  }
+  .fa-icon {
+    color: rgba(255,255,255, 0.5);
+    transition: 0.5s ease;
+    &:hover,
+    &:focus,
+    &:active {
+      color: #ff7c3a;
     }
   }
-  .middle {
-    &.mobile {
-      // top: calc(50vh - 3.5em);
-      .link.icon {
-        // width: 1.5em;
-        // height: 1.5em;
-        margin: 0 0.75rem;
-      }
-    }
-    top: calc(50vh - 2.75em);
-    position: absolute;
-    width: 100%;
-    justify-content: center;
-    .link {
-      margin: 0 1.5rem;
-      &.icon {
-        box-sizing: content-box;
-        z-index: 5;
-        padding: 1.25rem;
-        background-image: linear-gradient(#00436f, #1b203d);
-        width: 1em;
-        height: 1em;
-        color: #039170;
-        transition: 0.1s;
-        clip-path: circle(50% at 50% 50%);
-        /* IE only... */
-        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-          border-radius: 50%;
-        }
-        &:hover {
-          width: 1.1em;
-          height: 1.1em;
-          margin: -0.15rem 1.35rem;
-          clip-path: circle(50% at 50% 50%);
-          /* IE only... */
-          @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-            border-radius: 50%;
-          }
-        }
-      }
-    }
+  .social-link {
+    padding: 0.5em 0.75em;
   }
-  .below {
-    background: white;
-    .col {
-      opacity: 1;
-      font-size: 1rem;
-      &.hidden {
-        .doodle {
-          opacity: 1;
-          width: 25em;
-        }
+  .repo {
+    transition: 0.5s ease;
+    background: rgba(0,0,0,0.5);
+    padding: 1em;
+    width: 80%;
+    cursor: default;
+    color: white;
+    &:not(:last-child) {
+      margin-bottom: 1em;
+    }
+    &:hover,
+    &:focus {
+      background: rgba(0,0,0,0.75);
+      padding: 2em 1em;
+    }
+    &__title-bar {
+      justify-content: space-between;
+      align-items: center;
+    }
+    &__links {
+      display: flex;
+      align-items: center;
+    }
+    &__link {
+      display: flex;
+      &:not(:first-child) {
+        padding-left: 0.5em;
       }
-      .link-message {
-        font-size: 3rem;
-        color:#00436f;
-        font-family: NothingYouCouldDo, cursive;
-        max-width: 30%;
-        text-align: center;
-        &.mobile {
-          max-width: 70%;
-        }
+      &--wip {
+        color: #00c180;
+        font-size: 0.8rem;
+        line-height: 1;
+        font-weight: 600;
+        align-self: flex-start;
+        padding-top: 0.25em;
       }
-      img {
-        transition: 0.5s;
-        width: 15rem;
-        opacity: 0.2;
-        position: absolute;
-        /* IE only... */
-        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          margin: auto;
-        }
-      }
+    }
+    &__description {
+      padding: 0.5em;
+      color: #ccc;
+      font-weight: 300;
     }
   }
 
-  /* --[ MOBILE ]-- */
-  .mobile {
-    .above {
-      height: 45vh;
-    }
-    .middle {
-      top: calc(45vh - 2.5em);
-    }
-    .below {
-      height: 55vh;
-    }
-    .page-title {
-      font-size: 4.5em;
-    }
-    .below .col.hidden .doodle {
-      width: 20em;
-    }
-    .link.icon {
-      height: 1em;
-      font-size: 2em !important;
-      margin: 0 0.2em;
-      &:hover {
-        margin: -0.25rem 0.2em;
-        height: 1.25em;
-        width: 1.25em;
-      }
-    }
-    .below .col .link-message {
-      font-size: 2.25rem;
-      max-width: 70%;
+  .tag {
+    padding: 0.1em 0.75em;
+    border-radius: 0.25em;
+    background: transparentize(lightseagreen, 0.5);
+    text-transform: uppercase;
+    font-size: 0.7em;
+    &:not(:last-child) {
+      margin-right: 0.4em;
     }
   }
 </style>

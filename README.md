@@ -1,6 +1,6 @@
-# My Github pages project
+# My Hub linking to my various repos
 
-> A Vue.js project for GitHub pages
+> A Vue.js portfolio
 
 ## Build Setup
 

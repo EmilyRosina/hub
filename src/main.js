@@ -8,8 +8,7 @@ import store from './store/store'
 
 import globalComponents from './store/utility/globalcomponents'
 import plugins from './store/utility/plugins'
-import mySassStyles from '@/assets/styles/scss/main.scss'
-import myStyles from '@/assets/styles/css/main.css'
+import myStyles from '@/assets/styles/scss/main.scss'
 
 Vue.config.productionTip = false
 
