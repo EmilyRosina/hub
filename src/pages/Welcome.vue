@@ -122,6 +122,13 @@
     width: 15em;
     border-radius: 50%;
     transform: rotate(12deg);
+    @media screen and (max-width: 767px) {
+      margin-top: 2em;
+    }
+    @media screen and (max-width: 700px) {
+      height: 8em;
+      width: 8em;
+    }
   }
   .intro-text {
     padding-top: 1em;
