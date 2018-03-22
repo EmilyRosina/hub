@@ -1,0 +1,26 @@
+.fa-icon {
+  color: rgba(255,255,255, 0.5);
+  transition: 0.5s ease;
+  &:hover,
+  &:focus,
+  &:active {
+    color: #ff7c3a;
+  }
+}
+
+.background-img {
+  background: #02050F;
+  background-image: url('../../images/background_galaxy.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.avatar {
+  background-image: url('../../images/avatar.png');
+  transform: rotate(12deg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 15em;
+  width: 15em;
+  border-radius: 50%;
+}
