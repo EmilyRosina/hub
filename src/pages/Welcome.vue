@@ -1,19 +1,19 @@
 <template>
   <sl-container id="welcome" fullWidth fullHeight class="background-img">
     <sl-row noGutters :flexGrow="1">
-      <sl-col flex align="center" col="12" md="6">
+      <sl-col flex align="center" col="12" md="6" justify="start" class="column--avatar">
         <div class="avatar"></div>
         <div class="intro-text">
           <h4 class="intro-text__name">Emily Rosina Carey</h4>
           <h5 class="intro-text__role">Front-end Developer</h5>
         </div>
-        <sl-row>
+        <sl-row class="social-links">
           <a v-for="(link, key) in socialLinks" :key="key" :href="link.href" class="social-link">
             <icon :name="link.icon" scale="1.5"></icon>
           </a>
         </sl-row>
       </sl-col>
-      <sl-col flex align="center" col="12" md="6">
+      <sl-col flex align="center" col="12" md="6" class="column--repos">
 
         <div noGutters v-for="(repo, key) in repos" :key="key" class="repo">
           <sl-row class="repo__title-bar" noGutters>
@@ -96,8 +96,9 @@
               'vue',
               'sass',
               'vue plugin',
-              'lib',
-              'npm registry'
+              'shoelace',
+              'npm registry',
+              'github pages'
             ],
             wip: true
           }
@@ -114,6 +115,18 @@
     background-size: 100%;
     background-repeat: no-repeat;
   }
+  .column {
+    &--avatar {
+      padding-top: 25vh;
+      @media screen and (max-width: 767px) {
+        padding-top: 12vw;
+      }
+    }
+    &--repos {
+      padding: 3em 0;
+    }
+  }
+
   .avatar {
     background-image: url('../assets/images/avatar.png');
     background-size: 100%;
@@ -122,9 +135,6 @@
     width: 15em;
     border-radius: 50%;
     transform: rotate(12deg);
-    @media screen and (max-width: 767px) {
-      margin-top: 2em;
-    }
     @media screen and (max-width: 700px) {
       height: 8em;
       width: 8em;
@@ -160,9 +170,7 @@
         92% 95%,
         7% 85%
       );
-      box-shadow: 1px 1px 10px white;
     }
-
   }
   .fa-icon {
     color: rgba(255,255,255, 0.5);
@@ -171,6 +179,11 @@
     &:focus,
     &:active {
       color: #ff7c3a;
+    }
+  }
+  .social-links {
+    @media screen and (max-width: 767px) {
+      margin-bottom: 4em;
     }
   }
   .social-link {
