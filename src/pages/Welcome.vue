@@ -194,10 +194,14 @@
     &__title-bar {
       justify-content: space-between;
       align-items: center;
+      > * {
+        flex: 1 0 auto;
+      }
     }
     &__links {
       display: flex;
       align-items: center;
+      justify-content: flex-end;
     }
     &__link {
       display: flex;
@@ -219,13 +223,13 @@
       font-weight: 300;
     }
   }
-
   .tag {
     padding: 0.1em 0.75em;
     border-radius: 0.25em;
     background: transparentize(lightseagreen, 0.5);
     text-transform: uppercase;
     font-size: 0.7em;
+    display: inline-block;
     &:not(:last-child) {
       margin-right: 0.4em;
     }
