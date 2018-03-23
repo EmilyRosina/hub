@@ -79,7 +79,7 @@ export default {
         'jquery',
         'bootstrap',
         'css',
-        'vanilla',
+        'vanilla jsx',
         'api',
         'axios'
       ],

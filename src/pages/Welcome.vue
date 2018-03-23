@@ -1,7 +1,7 @@
 <template>
   <sl-container id="welcome" fullWidth fullHeight class="background-img">
     <sl-row noGutters :flexGrow="1">
-      <sl-col flex align="center" col="12" md="6" justify="start" class="column--avatar">
+      <sl-col flex align="center" col="12" md="5" lg="6" justify="start" class="column--avatar">
         <div class="avatar"></div>
         <div class="intro-text">
           <h4 class="intro-text__name">Emily Rosina Carey</h4>
@@ -13,7 +13,7 @@
           </a>
         </sl-row>
       </sl-col>
-      <sl-col flex align="center" col="12" md="6" class="column--repos">
+      <sl-col flex align="center" col="12" md="7" lg="6" class="column--repos">
         <repo v-for="(repo, key) in repos" :key="key" :repo="repo" />
       </sl-col>
     </sl-row>
@@ -73,35 +73,35 @@
     }
   }
   .intro-text {
-    padding-top: 1em;
     color: deepskyblue;
+    padding-top: 1em;
     text-align: center;
     &__name {
-      font-family: "Dancing Script";
-      font-size: 2rem;
       background: transparentize(black, 0.25);
-      padding: 0.25em 1em 0.45em;
       clip-path: polygon(
         5% 8%,
         100% 1%,
         92% 95%,
         7% 89%
       );
+      font-family: "Dancing Script";
+      font-size: 2rem;
+      padding: 0.25em 1em 0.45em;
     }
     &__role {
-      padding: 0.5em;
-      margin-top: -1.25em;
-      font-size: 0.8rem;
-      color: #222;
-      text-transform: uppercase;
-      font-weight: 700;
       background:#00c180;
       clip-path: polygon(
         0% 0%,
         100% 1%,
-        92% 95%,
         7% 85%
+        92% 95%
       );
+      color: #222;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-top: -1.25em;
+      padding: 0.5em;
+      text-transform: uppercase;
     }
   }
   .social-links {

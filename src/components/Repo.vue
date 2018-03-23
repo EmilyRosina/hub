@@ -34,7 +34,7 @@ export default {
     padding: 1em;
     width: 80%;
     cursor: default;
-    color: white;
+    @extend %text-white;
     &:not(:last-child) {
       margin-bottom: 1em;
     }
@@ -52,12 +52,12 @@ export default {
       }
     }
     &__links {
-      display: flex;
+      @extend %flex;
       align-items: center;
       justify-content: flex-end;
     }
     &__link {
-      display: flex;
+       @extend %flex;
       &:not(:first-child) {
         padding-left: 0.5em;
       }
