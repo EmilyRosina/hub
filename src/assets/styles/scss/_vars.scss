@@ -8,8 +8,16 @@ $mint: #039170;
 %flex {
   display: flex;
   flex-wrap: wrap;
+  &--centered {
+    @extend %flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
 }
 
-.text-white {
-  color: white;
+%text {
+  &-white {
+    color: white;
+  }
 }
