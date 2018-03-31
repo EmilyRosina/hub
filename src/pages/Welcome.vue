@@ -93,8 +93,8 @@
       clip-path: polygon(
         0% 0%,
         100% 1%,
-        7% 85%
-        92% 95%
+        97% 82%,
+        2% 97%
       );
       color: #222;
       font-size: 0.8rem;
