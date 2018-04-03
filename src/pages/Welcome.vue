@@ -1,8 +1,8 @@
 <template>
-  <sl-container id="welcome" fullWidth fullHeight class="background-img">
+  <sl-container id="welcome" fullWidth fullHeight class="background-img" v-lazy.background-image="bgUrl" >
     <sl-row noGutters :flexGrow="1">
       <sl-col flex align="center" col="12" md="5" lg="6" justify="start" class="column--avatar">
-        <div class="avatar"></div>
+        <div class="avatar" v-lazy.background-image="avatarUrl" />
         <div class="intro-text">
           <h4 class="intro-text__name">Emily Rosina Carey</h4>
           <h5 class="intro-text__role">Front-end Developer</h5>
@@ -22,6 +22,8 @@
 
 <script>
   import repo from '@/components/Repo'
+  import bgUrl from '@/assets/images/background_galaxy.png'
+  import avatarUrl from '@/assets/images/avatar.png'
 
   export default {
     name: 'Welcome',
@@ -42,7 +44,9 @@
             icon: 'envelope',
             href: 'mailto:emilyrc.jobs@gmail.com'
           }
-        }
+        },
+        avatarUrl,
+        bgUrl
       }
     },
     components: {
