@@ -9,27 +9,27 @@
     name: 'sl-row',
     props: {
       row: {
-        type: String,
+        type: [Number, String],
         default: '',
         required: false
       },
       sm: {
-        type: String,
+        type: [Number, String],
         default: '',
         required: false
       },
       md: {
-        type: String,
+        type: [Number, String],
         default: '',
         required: false
       },
       lg: {
-        type: String,
+        type: [Number, String],
         default: '',
         required: false
       },
       xl: {
-        type: String,
+        type: [Number, String],
         default: '',
         required: false
       },
@@ -44,7 +44,7 @@
         required: false
       },
       flexGrow: {
-        type: Number,
+        type: [Number, String],
         default: -1,
         required: false
       }

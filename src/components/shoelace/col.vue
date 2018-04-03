@@ -9,48 +9,47 @@
     name: 'sl-col',
     props: {
       col: {
-        type: String,
-        note: 'Default number of columns',
+        type: [Number, String],
         default: '',
         required: false
       },
       xs: {
-        type: String,
+        type: [Number, String],
         default: '',
         required: false
       },
       sm: {
-        type: String,
+        type: [Number, String],
         default: '',
         required: false
       },
       md: {
-        type: String,
+        type: [Number, String],
         default: '',
         required: false
       },
       lg: {
-        type: String,
+        type: [Number, String],
         default: '',
         required: false
       },
       xl: {
-        type: String,
+        type: [Number, String],
         default: '',
         required: false
       },
       hide: {
-        type: String,
+        type: [Number, String],
         default: '',
         required: false
       },
       order: {
-        type: String,
+        type: [Number, String],
         default: '',
         required: false
       },
       offset: {
-        type: String,
+        type: [Number, String],
         default: '',
         required: false
       },
@@ -60,7 +59,7 @@
         required: false
       },
       grow: {
-        type: String,
+        type: [Number, String],
         default: '',
         required: false
       },
