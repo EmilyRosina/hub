@@ -1,10 +1,17 @@
+@import './vars';
+
+::selection {
+  background: transparentize($blue-vivid, 0.25);
+  color: white;
+}
+
 .fa-icon {
   color: rgba(255,255,255, 0.5);
   transition: 0.5s ease;
   &:hover,
   &:focus,
   &:active {
-    color: #ff7c3a;
+    color: $peach;
   }
 }
 
@@ -16,11 +23,12 @@
 }
 
 .avatar {
-  background-image: url('../../images/avatar.png');
+  background:black;
   transform: rotate(12deg);
   background-size: 100%;
   background-repeat: no-repeat;
   height: 15em;
   width: 15em;
   border-radius: 50%;
+  transition: 0.5s ease;
 }
