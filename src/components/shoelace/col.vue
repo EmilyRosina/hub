@@ -6,9 +6,11 @@
 
 <script>
   export default {
+    name: 'sl-col',
     props: {
       col: {
         type: String,
+        note: 'Default number of columns',
         default: '',
         required: false
       },

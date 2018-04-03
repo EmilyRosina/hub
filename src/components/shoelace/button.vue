@@ -1,11 +1,12 @@
 <template>
-  <button type="button ":class="[classes]">
+  <button type="button" :class="[classes]">
     <slot></slot>
   </button>
 </template>
 
 <script>
   export default {
+    name: 'sl-button',
     props: {
       button: {
         type: String,
@@ -57,7 +58,7 @@
       classes () {
         let props = this._props
         let classes = Object.keys(props).filter(prop => {
-          return props[prop].length > 0 && !['active','disabled'].includes(prop)
+          return props[prop].length > 0 && !['active', 'disabled'].includes(prop)
         })
         let list = []
         classes.forEach((x) => {

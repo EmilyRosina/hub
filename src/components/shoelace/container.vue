@@ -6,6 +6,7 @@
 
 <script>
   export default {
+    name: 'sl-container',
     props: {
       fullWidth: {
         type: Boolean,

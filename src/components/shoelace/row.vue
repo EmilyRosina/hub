@@ -6,6 +6,7 @@
 
 <script>
   export default {
+    name: 'sl-row',
     props: {
       row: {
         type: String,

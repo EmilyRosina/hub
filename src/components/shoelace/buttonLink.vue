@@ -1,11 +1,12 @@
 <template>
   <a :class="['button', button]">
     <slot></slot>
-  </span>
+  </a>
 </template>
 
 <script>
   export default {
+    name: 'sl-button-link',
     props: {
       style: {
         type: String,
@@ -15,7 +16,7 @@
     },
     computed: {
       button () {
-        return style === 'link' ? 'button-link' : ''
+        return this.style === 'link' ? 'button-link' : ''
       }
     }
   }

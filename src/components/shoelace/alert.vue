@@ -6,6 +6,7 @@
 
 <script>
   export default {
+    name: 'sl-alert',
     props: {
       alert: {
         type: String,
