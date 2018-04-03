@@ -8,7 +8,7 @@
           <h5 class="intro-text__role">Front-end Developer</h5>
         </div>
         <sl-row class="social-links">
-          <a v-for="(link, key) in socialLinks" :key="key" :href="link.href" class="social-link">
+          <a v-for="(link, key) in socialLinks" :key="key" :href="link.href" class="social-link" :target="link.target">
             <icon :name="link.icon" scale="1.5"></icon>
           </a>
         </sl-row>
@@ -30,11 +30,13 @@
         socialLinks: {
           linkedin: {
             icon: 'linkedin',
-            href: 'https://www.linkedin.com/in/emilyrosinacarey/'
+            href: 'https://www.linkedin.com/in/emilyrosinacarey/',
+            target: '_blank'
           },
           github: {
             icon: 'github',
-            href: 'https://github.com/EmilyRosina'
+            href: 'https://github.com/EmilyRosina',
+            target: '_blank'
           },
           email: {
             icon: 'envelope',

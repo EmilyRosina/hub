@@ -4,10 +4,10 @@
       <h2 class="repo__title">{{ repo.title }}</h2>
       <sl-row noGutters class="repo__links">
         <span class="repo__link repo__link--wip" v-if="repo.wip">WIP</span>
-        <a class="repo__link" :href="repo.links.github">
+        <a class="repo__link" :href="repo.links.github" target="_blank">
           <icon name="github" alt="source code" scale="2" />
         </a>
-        <a class="repo__link" :href="repo.links.live" v-if="repo.links.live">
+        <a class="repo__link" :href="repo.links.live" v-if="repo.links.live" target="_blank">
           <icon name="globe" alt="live site" scale="2" />
         </a>
       </sl-row>
@@ -22,7 +22,11 @@
 <script>
 export default {
   props: {
-    repo: {}
+    repo: {
+      type: Object,
+      default: {},
+      required: true
+    }
   }
 }
 </script>
