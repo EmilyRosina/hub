@@ -1,5 +1,5 @@
 <template>
-    <div noGutters class="repo">
+  <div noGutters class="repo">
     <sl-row class="repo__title-bar" noGutters>
       <h2 class="repo__title">{{ repo.title }}</h2>
       <sl-row noGutters class="repo__links">
@@ -39,14 +39,17 @@ export default {
     width: 80%;
     cursor: default;
     @extend %text-white;
+
     &:not(:last-child) {
       margin-bottom: 1em;
     }
+
     &:hover,
     &:focus {
       background: rgba(0,0,0,0.75);
       padding: 2em 1em;
     }
+
     &__title-bar {
       justify-content: space-between;
       align-items: center;
@@ -55,16 +58,20 @@ export default {
         width: 100%;
       }
     }
+
     &__links {
       @extend %flex;
       align-items: center;
       justify-content: flex-end;
     }
+
     &__link {
        @extend %flex;
+
       &:not(:first-child) {
         padding-left: 0.5em;
       }
+
       &--wip {
         color: #00c180;
         font-size: 0.8rem;
@@ -74,6 +81,7 @@ export default {
         padding-top: 0.25em;
       }
     }
+
     &__description {
       padding: 0.5em;
       color: #ccc;
@@ -87,6 +95,7 @@ export default {
     text-transform: uppercase;
     font-size: 0.7em;
     display: inline-block;
+
     &:not(:last-child) {
       margin-right: 0.4em;
     }

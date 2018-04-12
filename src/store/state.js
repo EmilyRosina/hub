@@ -5,6 +5,19 @@ export default {
     points: null
   },
   repos: {
+    vueFirebaseLogin: {
+      title: 'Vue/Firebase Login',
+      description: `Simple login app using vue and firebase`,
+      links: {
+        github: 'https://github.com/simplexample/vue-firebase-login'
+      },
+      tags: [
+        'vue',
+        'firebase',
+        'sass',
+        'authentication'
+      ]
+    },
     pokedex: {
       title: 'Pokedex',
       description: `Mini web app to search through 1st gen Pokemon and show details, cards and sprites for selected/random pokemon.`,
@@ -32,6 +45,7 @@ export default {
       tags: [
         'vue',
         'sass',
+        'local storage',
         'github pages'
       ],
       wip: true
