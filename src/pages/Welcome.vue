@@ -6,6 +6,17 @@
         <div class="intro-text">
           <h4 class="intro-text__name">Emily Rosina Carey</h4>
           <h5 class="intro-text__role">Front-end Developer</h5>
+          <h5 class="intro-text__contributor">
+            <span class="intro-text__contributor__text">Open Source contributor to</span>
+            <span class="intro-text__contributor__count">{{ noOfContributions }}</span>
+            <p class="intro-text__contributor__wrapper">
+              <a
+                v-for="(contribution, key) in contributions" :key="key"
+                :href="contribution.href"
+                target="_blank">
+                <img :src="contribution.icon" class="intro-text__contributor__icon" /></a>
+            </p>
+          </h5>
         </div>
         <sl-row class="social-links">
           <a v-for="(link, key) in socialLinks" :key="key" :href="link.href" class="social-link" :target="link.target">
@@ -24,6 +35,8 @@
   import repo from '@/components/Repo'
   import bgUrl from '@/assets/images/background_galaxy.png'
   import avatarUrl from '@/assets/images/avatar.png'
+  import softwareDailyIcon from '@/assets/images/softwaredaily.png'
+  import vueAwesomeIcon from '@/assets/images/vueawesome.png'
 
   export default {
     name: 'Welcome',
@@ -45,6 +58,16 @@
             href: 'mailto:emilyrc.jobs@gmail.com'
           }
         },
+        contributions: {
+          softwareDaily: {
+            icon: softwareDailyIcon,
+            href: 'https://github.com/SoftwareEngineeringDaily/sedaily-front-end'
+          },
+          vueAwesome: {
+            icon: vueAwesomeIcon,
+            href: 'https://github.com/Justineo/vue-awesome'
+          }
+        },
         avatarUrl,
         bgUrl
       }
@@ -55,6 +78,12 @@
     computed: {
       repos () {
         return this.$store.state.repos
+      },
+      noOfContributions () {
+        let length = Object.keys(this.contributions).length
+        return length === 1
+          ? '1 repository'
+          : `${length} respositories`
       }
     }
   }
@@ -82,6 +111,7 @@
     color: deepskyblue;
     padding-top: 1em;
     text-align: center;
+
     &__name {
       background: transparentize(black, 0.25);
       clip-path: polygon(
@@ -94,6 +124,7 @@
       font-size: 2rem;
       padding: 0.25em 1em 0.45em;
     }
+
     &__role {
       background:#00c180;
       clip-path: polygon(
@@ -108,6 +139,57 @@
       margin-top: -1.25em;
       padding: 0.5em;
       text-transform: uppercase;
+    }
+
+    &__contributor {
+      background: transparentize(black, 0.5);
+      padding: 1em 0.5em;
+      border-radius: 2em;
+      font-size: 0.8rem;
+
+      &:hover &__wrapper {
+        height: 5em;
+      }
+
+      &:hover &__icon {
+        height: 50px;
+        width: 50px;
+        &:hover {
+          transition: unset;
+          opacity: 1;
+        }
+      }
+
+      &__text {
+        color: #ccc;
+        font-weight: 400;
+      }
+
+      &__count {
+        background: transparentize(#ccc, 0.85);
+        border-radius: 1em;
+        padding: 0 0.75em;
+        color: skyblue;
+      }
+
+      &__wrapper {
+        transition: 0.5s ease all;
+        margin: 0;
+        height: 0;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      &__icon {
+        transition: 0.5s ease all;
+        height: 0px;
+        width: 0px;
+        border-radius: 50%;
+        margin: 0.5em;
+        opacity: 0.7;
+      }
     }
   }
   .social-links {
