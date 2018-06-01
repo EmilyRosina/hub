@@ -83,7 +83,7 @@
         let length = Object.keys(this.contributions).length
         return length === 1
           ? '1 repository'
-          : `${length} respositories`
+          : `${length} repositories`
       }
     }
   }
