@@ -5,6 +5,43 @@ export default {
     points: null
   },
   repos: {
+    ffxivCrafting: {
+      title: 'FFXIV Crafting',
+      description: `Search app to aid crafting in Final Fantasy Online (FFXIV)`,
+      links: {
+        github: 'https://github.com/EmilyRosina/ffxiv-crafting',
+        live: 'https://emilyrosina.github.io/ffxiv-crafting'
+      },
+      tags: [
+        'vue',
+        'sass',
+        'api',
+        'axios',
+        'search',
+        'gaming',
+        'github pages'
+      ],
+      wip: true
+    },
+    octopusLabsChallenge: {
+      title: 'Octopus Labs Challenge',
+      description: `Small address search and save app, to accumulate residential addresses for past 3 years`,
+      links: {
+        github: 'https://github.com/EmilyRosina/octopus-labs-challenge',
+        live: 'https://emilyrosina.github.io/octopus-labs-challenge'
+      },
+      tags: [
+        'react',
+        'sass',
+        'api',
+        'axios',
+        'search',
+        'local storage',
+        'session storage',
+        'github pages'
+      ],
+      wip: false
+    },
     vueFirebaseLogin: {
       title: 'Vue/Firebase Login',
       description: `Simple login app using vue and firebase`,
@@ -16,7 +53,8 @@ export default {
         'firebase',
         'sass',
         'authentication'
-      ]
+      ],
+      wip: false
     },
     pokedex: {
       title: 'Pokedex',
@@ -32,7 +70,7 @@ export default {
         'axios',
         'github pages'
       ],
-      wip: true
+      wip: false
     },
     userStoryBuilder: {
       title: 'User Story Builder',
