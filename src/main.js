@@ -7,8 +7,8 @@ import App from './App'
 import router from './router'
 import store from './store/store'
 
-import globalComponents from './store/utility/globalcomponents'
-import plugins from './store/utility/plugins'
+import globalComponents from './store/utils/globalcomponents'
+import plugins from './store/utils/plugins'
 import myStyles from '@/assets/styles/scss/main.scss'
 
 Vue.use(Vuex)

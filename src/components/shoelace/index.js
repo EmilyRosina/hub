@@ -1,4 +1,4 @@
-import Vue from 'vue'
+// import Vue from 'vue'
 
 /* eslint-disable no-unused-vars */
 import shoelaceStyles from 'shoelace-css/dist/shoelace.css'
@@ -14,7 +14,7 @@ import slRow from './row'
 
 /* eslint-disable no-multi-spaces */
 //   ❌✔️ = completion status    //
-const components = [
+export default [
   slAlert,        // ❌
   slBadge,        // ❌
   slBadgeLink,    // ❌
@@ -24,7 +24,3 @@ const components = [
   slContainer,    // ✔️
   slRow           // ✔️
 ]
-
-components.forEach(component => {
-  Vue.component(component.name, component)
-})

@@ -1,4 +1,4 @@
-import breakpoints from './utility/_breakpoints'
+import breakpoints from './utils/_breakpoints'
 
 export default {
   breakpoint (state) {
