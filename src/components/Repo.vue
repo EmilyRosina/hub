@@ -1,20 +1,42 @@
 <template>
-  <div noGutters class="repo">
-    <sl-row class="repo__title-bar" noGutters>
+  <div
+    noGutters
+    class="repo">
+    <sl-row
+      class="repo__title-bar"
+      noGutters>
       <h2 class="repo__title">{{ repo.title }}</h2>
-      <sl-row noGutters class="repo__links">
-        <span class="repo__link repo__link--wip" v-if="repo.wip">WIP</span>
-        <a class="repo__link" :href="repo.links.github" target="_blank">
-          <icon name="github" alt="source code" scale="2" />
+      <sl-row
+        noGutters
+        class="repo__links">
+        <span
+          class="repo__link repo__link--wip"
+          v-if="repo.wip">
+          WIP
+        </span>
+        <a
+          class="repo__link"
+          :href="repo.links.github"
+          target="_blank">
+          <icon name="brands/github" alt="source code" scale="2" />
         </a>
-        <a class="repo__link" :href="repo.links.live" v-if="repo.links.live" target="_blank">
-          <icon name="globe" alt="live site" scale="2" />
+        <a
+          class="repo__link"
+          :href="repo.links.live"
+          v-if="repo.links.live"
+          target="_blank">
+          <icon name="globe-americas" alt="live site" scale="2" />
         </a>
       </sl-row>
     </sl-row>
     <p class="repo__description">{{ repo.description }}</p>
     <p>
-      <span v-for="(tag, index) in repo.tags" :key="index" class="tag">{{ tag }}</span>
+      <span
+        v-for="(tag, index) in repo.tags"
+        :key="index"
+        class="tag">
+        {{ tag }}
+      </span>
     </p>
   </div>
 </template>
@@ -24,10 +46,10 @@ export default {
   props: {
     repo: {
       type: Object,
-      default: {},
-      required: true
-    }
-  }
+      default: () => ({}),
+      required: true,
+    },
+  },
 }
 </script>
 

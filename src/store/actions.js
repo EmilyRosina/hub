@@ -1,13 +1,10 @@
 import axios from 'axios'
+import api from '@/api/treehouse'
 
 export default {
-  GET_TREEHOUSE_DATA ({ commit, getters }) {
-    axios.get(getters.api.treehouse)
-      .then(response => {
-        commit('set_treehouse_data', response.data)
-      })
-      .catch(error => {
-        console.error(error)
-      })
-  }
+  async GET_TREEHOUSE_DATA({ commit, getters }) {
+    const { data, error } = await axios.get(api.getTreehouseData)
+    if (data) commit('SET_TREEHOUSE_DATA', data)
+    else console.error(error)
+  },
 }

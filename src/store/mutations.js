@@ -1,18 +1,31 @@
 export default {
-  set_width (state, width) {
+  SET_WIDTH(state, width) {
     state.width = width
   },
-  set_breakpoint (state, breakpoint) {
+
+  SET_BREAKPOINT(state, breakpoint) {
     state.breakpoint = breakpoint
   },
-  set_treehouse_data (state, payload) {
-    state.treehouse.badges = payload.badges
-    let points = []
-    Object.keys(payload.points).forEach(key => {
-      if (payload.points[key] !== 0) {
-        points.push({ skill: key, points: payload.points[key] })
+
+  SET_TREEHOUSE_DATA(state, { badges, points }) {
+    const totalPoints = points.total
+    state.treehouse = {
+      badges,
+      totalPoints,
+      points: {},
+    }
+    delete points.total
+    for (const [key, value] of Object.entries(points)) {
+      state.treehouse.points[key] = {
+        label: key,
+        points: value,
+        get learned() {
+          return value !== 0
+        },
+        get percentage() {
+          return Number((value / totalPoints).toFixed(2))
+        }
       }
-    })
-    state.treehouse.points = points
-  }
+    }
+  },
 }

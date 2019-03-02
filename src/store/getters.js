@@ -1,22 +1,11 @@
-import breakpoints from './utils/_breakpoints'
+import { breakpoints } from '@/utils'
 
 export default {
-  breakpoint (state) {
+  breakpoint(state) {
     let breakpoint = ''
-    do {
-      for (let bp in breakpoints) {
-        let min = breakpoints[bp][0]
-        let max = breakpoints[bp][1]
-        if (state.width >= min && state.width <= max) {
-          breakpoint = bp
-        }
-      }
-    } while (breakpoint === '')
+    Object.entries(breakpoints).forEach(([bp, [min, max]]) => {
+      if (state.width >= min && state.width <= max) breakpoint = bp
+    })
     return breakpoint
   },
-  api () {
-    return {
-      treehouse: 'https://teamtreehouse.com/emilycarey.json'
-    }
-  }
 }

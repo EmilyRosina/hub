@@ -1,18 +1,23 @@
 {
   "presets": [
-    ["env", {
-      "modules": false,
+    ["@babel/preset-env", {
       "targets": {
-        "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]
-      }
+        "browsers": [
+          "> 5%",
+          "last 2 versions",
+          "not ie <= 8"
+        ]
+      },
+      "modules": false,
+      "exclude": [
+        "transform-regenerator"
+      ]
     }],
-    "stage-2"
+    ["@babel/preset-stage-2", {
+      "useBuiltIns": true,
+      "decoratorsLegacy": true
+    }]
   ],
-  "plugins": ["transform-runtime"],
-  "env": {
-    "test": {
-      "presets": ["env", "stage-2"],
-      "plugins": ["istanbul"]
-    }
-  }
+  "plugins": [
+  ]
 }

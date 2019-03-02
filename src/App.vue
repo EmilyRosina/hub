@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :class="{'mobile': isMobile}">
+  <div id="app" :class="{ 'mobile': isMobile }">
     <transition name="fade" mode="out-in" appear>
       <router-view></router-view>
     </transition>
@@ -7,17 +7,33 @@
 </template>
 
 <script>
-  export default {
-    name: 'app',
-    mounted () {
-      this.$store.dispatch('GET_TREEHOUSE_DATA')
+import { mapGetters, mapMutations, mapActions } from 'vuex'
+
+export default {
+  name: 'app',
+  mounted () {
+    // essential for breakpoints to be accessible in vue
+    this.SET_WIDTH(window.innerWidth)
+    window.addEventListener('resize', () => this.SET_WIDTH(window.innerWidth))
+    this.GET_TREEHOUSE_DATA()
+  },
+  computed: {
+    ...mapGetters([
+      'breakpoint',
+    ]),
+    isMobile() {
+      return this.breakpoint === 'xs'
     },
-    computed: {
-      isMobile () {
-        return this.$store.getters.breakpoint === 'xs'
-      }
-    }
+  },
+  methods: {
+    ...mapMutations([
+      'SET_WIDTH'
+    ]),
+    ...mapActions([
+      'GET_TREEHOUSE_DATA'
+    ]),
   }
+};
 </script>
 
 <style>
