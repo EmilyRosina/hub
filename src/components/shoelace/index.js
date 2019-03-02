@@ -1,7 +1,6 @@
 // import Vue from 'vue'
 
-/* eslint-disable no-unused-vars */
-import shoelaceStyles from 'shoelace-css/dist/shoelace.css'
+import 'shoelace-css/dist/shoelace.css'
 
 import slAlert from './alert'
 import slBadge from './badge'

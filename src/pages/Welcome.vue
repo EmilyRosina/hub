@@ -1,7 +1,20 @@
 <template>
-  <sl-container id="welcome" fullWidth fullHeight class="background-img" v-lazy.background-image="bgUrl" >
-    <sl-row noGutters :flexGrow="1">
-      <sl-col flex align="center" col="12" md="5" lg="6" justify="start" class="column--avatar">
+  <sl-container
+    id="welcome"
+    fullWidth
+    fullHeight
+    class="background-img"
+    v-lazy.background-image="bgUrl">
+    <sl-row
+      noGutters
+      :flexGrow="1">
+      <sl-col
+        flex align="center"
+        col="12"
+        md="5"
+        lg="6"
+        justify="start"
+        class="column--avatar">
         <div class="avatar" v-lazy.background-image="avatarUrl" />
         <div class="intro-text">
           <h4 class="intro-text__name">Emily Rosina Carey</h4>
@@ -14,91 +27,104 @@
                 v-for="(contribution, key) in contributions" :key="key"
                 :href="contribution.href"
                 target="_blank">
-                <img :src="contribution.icon" class="intro-text__contributor__icon" /></a>
+                <img :src="contribution.icon" class="intro-text__contributor__icon"/></a>
             </p>
           </h5>
         </div>
         <sl-row class="social-links">
-          <a v-for="(link, key) in socialLinks" :key="key" :href="link.href" class="social-link" :target="link.target">
-            <icon :name="link.icon" scale="1.5"></icon>
+          <a
+            v-for="({ href, target, icon}, key) in socialLinks"
+            :key="key"
+            :href="href"
+            class="social-link"
+            :target="target">
+            <icon :name="icon" scale="1.5"></icon>
           </a>
         </sl-row>
       </sl-col>
       <sl-col flex align="center" col="12" md="7" lg="6" class="column--repos">
-        <repo v-for="(repo, key) in repos" :key="key" :repo="repo" />
+        <Repo v-for="(repo, key) in repos" :key="key" :repo="repo" />
       </sl-col>
     </sl-row>
   </sl-container>
 </template>
 
 <script>
-  import repo from '@/components/Repo'
-  import bgUrl from '@/assets/images/background_galaxy.png'
-  import avatarUrl from '@/assets/images/avatar.png'
-  import softwareDailyIcon from '@/assets/images/softwaredaily.png'
-  import vueAwesomeIcon from '@/assets/images/vueawesome.png'
+import Repo from '@/components/Repo'
+import bgUrl from '@/assets/images/background_galaxy.png'
+import avatarUrl from '@/assets/images/avatar.png'
+import softwareDailyIcon from '@/assets/images/softwaredaily.png'
+import vueAwesomeIcon from '@/assets/images/vueawesome.png'
 
-  export default {
-    name: 'Welcome',
-    data () {
-      return {
-        socialLinks: {
-          linkedin: {
-            icon: 'linkedin',
-            href: 'https://www.linkedin.com/in/emilyrosinacarey/',
-            target: '_blank'
-          },
-          github: {
-            icon: 'github',
-            href: 'https://github.com/EmilyRosina',
-            target: '_blank'
-          },
-          email: {
-            icon: 'envelope',
-            href: 'mailto:emilyrc.jobs@gmail.com'
-          }
+export default {
+  name: 'Welcome',
+  data() {
+    return {
+      socialLinks: {
+        linkedin: {
+          icon: 'brands/linkedin',
+          href: 'https://www.linkedin.com/in/emilyrosinacarey/',
+          target: '_blank',
         },
-        contributions: {
-          softwareDaily: {
-            icon: softwareDailyIcon,
-            href: 'https://github.com/SoftwareEngineeringDaily/sedaily-front-end'
-          },
-          vueAwesome: {
-            icon: vueAwesomeIcon,
-            href: 'https://github.com/Justineo/vue-awesome'
-          }
+        github: {
+          icon: 'brands/github',
+          href: 'https://github.com/EmilyRosina',
+          target: '_blank',
         },
-        avatarUrl,
-        bgUrl
-      }
-    },
-    components: {
-      repo
-    },
-    computed: {
-      repos () {
-        return this.$store.state.repos
+        email: {
+          icon: 'envelope',
+          href: 'mailto:emilyrc.jobs@gmail.com',
+        },
       },
-      noOfContributions () {
-        let length = Object.keys(this.contributions).length
-        return length === 1
-          ? '1 repository'
-          : `${length} repositories`
-      }
+      contributions: {
+        softwareDaily: {
+          icon: softwareDailyIcon,
+          href: 'https://github.com/SoftwareEngineeringDaily/sedaily-front-end',
+        },
+        vueAwesome: {
+          icon: vueAwesomeIcon,
+          href: 'https://github.com/Justineo/vue-awesome',
+        },
+      },
+      avatarUrl,
+      bgUrl,
     }
-  }
+  },
+  components: {
+    Repo,
+  },
+  computed: {
+    repos() {
+      return this.$store.state.repos
+    },
+    noOfContributions() {
+      const { length } = Object.keys(this.contributions)
+      return length === 1
+        ? '1 repository'
+        : `${length} repositories`;
+    },
+  },
+}
 </script>
 
 <style lang="scss" scoped>
   .column {
     &--avatar {
       padding-top: 25vh;
+      position: fixed;
+
       @media screen and (max-width: 767px) {
         padding-top: 12vw;
+        position: unset;
       }
     }
     &--repos {
       padding: 3em 0;
+      margin-left: auto;
+
+      @media screen and (max-width: 767px) {
+        margin: unset;
+      }
     }
   }
   .avatar {
