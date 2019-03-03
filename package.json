@@ -22,6 +22,8 @@
     "vuex": "^3.1.0"
   },
   "devDependencies": {
+    "@babel/preset-stage-2": "7.0.0-beta.44",
+    "@vue/cli": "^3.4.1",
     "@vue/cli-plugin-babel": "^3.4.1",
     "@vue/cli-plugin-e2e-cypress": "^3.4.1",
     "@vue/cli-plugin-eslint": "^3.4.1",
@@ -30,7 +32,6 @@
     "@vue/cli-service": "^3.4.1",
     "@vue/eslint-config-airbnb": "^4.0.0",
     "@vue/test-utils": "^1.0.0-beta.29",
-    "@babel/preset-stage-2": "7.0.0-beta.44",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.1.0",
