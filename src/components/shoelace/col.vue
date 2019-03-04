@@ -82,8 +82,8 @@ export default {
   },
   computed: {
     shoelaceClasses() {
-      let props = this._props
-      let shoelaceClasses = {}
+      const props = this._props
+      const shoelaceClasses = {}
       shoelaceClasses.breakpoints = this.classes.shoelace.breakpoints
         .filter((prop) => props[prop])
       shoelaceClasses.utility = this.classes.shoelace.utility
@@ -91,14 +91,14 @@ export default {
       return shoelaceClasses
     },
     flexClasses() {
-      let props = this._props
-      let flexClasses = this.classes.flex
+      const props = this._props
+      const flexClasses = this.classes.flex
         .filter((prop) => props[prop])
       return flexClasses
     },
     appliedClasses() {
-      let props = this._props
-      let list = []
+      const props = this._props
+      const list = []
       this.shoelaceClasses.breakpoints
         .forEach((x) => { list.push(`col-${x}-${props[x]}`) })
       this.shoelaceClasses.utility

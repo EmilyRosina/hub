@@ -6,5 +6,5 @@ export default {
     badges: null,
     points: null,
   },
-  repos
+  repos,
 }

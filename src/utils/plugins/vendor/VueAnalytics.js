@@ -12,5 +12,5 @@ export default {
     autoTracking: {
       shouldRouterUpdate: (to, from) => to.path !== from.path,
     },
-  }
+  },
 }

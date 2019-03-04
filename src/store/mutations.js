@@ -24,7 +24,7 @@ export default {
         },
         get percentage() {
           return Number((value / totalPoints).toFixed(2))
-        }
+        },
       }
     }
   },

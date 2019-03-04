@@ -19,6 +19,9 @@ module.exports = {
     'arrow-parens': ['warn', 'always'],
     'arrow-body-style': ['error', 'as-needed'],
     'implicit-arrow-linebreak': ['error', 'beside'],
+    'no-param-reassign': ['error', { 'props': false }],
+    'no-underscore-dangle': 0,
+    'no-restricted-syntax': 0
   },
   parserOptions: {
     parser: 'babel-eslint',

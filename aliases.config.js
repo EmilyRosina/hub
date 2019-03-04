@@ -1,32 +1,32 @@
-const path = require('path');
+const path = require('path')
 
 const aliases = {
   '@': 'src',
   shoelace: path.resolve(__dirname, 'src/components/shoelace'),
-};
+}
 
 function resolveSrc(_path) {
-  return path.join(__dirname, _path);
+  return path.join(__dirname, _path)
 }
 
 function registerWebpackAliases() {
-  const webpackAliases = {};
+  const webpackAliases = {}
   for (const [alias, aliasPath] of Object.entries(aliases)) {
-    webpackAliases[alias] = resolveSrc(aliasPath);
+    webpackAliases[alias] = resolveSrc(aliasPath)
   }
-  return webpackAliases;
+  return webpackAliases
 }
 
 function registerJestAliases() {
-  const jestAliases = {};
+  const jestAliases = {}
   for (const [alias, aliasPath] of Object.entries(aliases)) {
-    jestAliases[`^${alias}/(.*)$`] = `<rootDir>/${aliasPath}/$1`;
+    jestAliases[`^${alias}/(.*)$`] = `<rootDir>/${aliasPath}/$1`
   }
-  return jestAliases;
+  return jestAliases
 }
 
 function addStyleResources(config) {
-  const types = ['vue-modules', 'vue', 'normal-modules', 'normal'];
+  const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
   types.forEach((type) => {
     config.module
       .rule('sass')
@@ -37,8 +37,8 @@ function addStyleResources(config) {
         patterns: [
           path.resolve(__dirname, './src/assets/styles/scss/_vars.scss'),
         ],
-      });
-  });
+      })
+  })
 }
 
 module.exports = {
@@ -46,9 +46,9 @@ module.exports = {
     ...registerWebpackAliases(),
   },
   chainWebpack: (config) => {
-    addStyleResources(config);
+    addStyleResources(config)
   },
   jest: {
     ...registerJestAliases(),
   },
-};
+}

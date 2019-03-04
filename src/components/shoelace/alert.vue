@@ -3,13 +3,13 @@
 </template>
 
 <script>
-  export default {
-    name: 'sl-alert',
-    props: {
-      alert: {
-        type: String,
-        default: '',
-      }
-    }
-  }
+export default {
+  name: 'sl-alert',
+  props: {
+    alert: {
+      type: String,
+      default: '',
+    },
+  },
+}
 </script>
