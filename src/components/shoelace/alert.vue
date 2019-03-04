@@ -1,7 +1,5 @@
 <template>
-  <div :class="['alert', alert]">
-
-  </div>
+  <div :class="['alert', alert]"></div>
 </template>
 
 <script>
@@ -11,7 +9,6 @@
       alert: {
         type: String,
         default: '',
-        required: false
       }
     }
   }

@@ -11,7 +11,6 @@
       badge: {
         type: String,
         default: '',
-        required: false
       }
     }
   }
