@@ -5,14 +5,13 @@
 </template>
 
 <script>
-  export default {
-    name: 'sl-badge-link',
-    props: {
-      badge: {
-        type: String,
-        default: '',
-        required: false
-      }
-    }
-  }
+export default {
+  name: 'sl-badge-link',
+  props: {
+    badge: {
+      type: String,
+      default: '',
+    },
+  },
+}
 </script>

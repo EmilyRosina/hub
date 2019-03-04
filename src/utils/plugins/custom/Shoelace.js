@@ -2,11 +2,11 @@ import ShoelaceComponents from '@/components/shoelace'
 
 const options = undefined
 const plugin = {
-  install(Vue, options) {
+  install(Vue) {
     ShoelaceComponents.forEach((component) => {
       Vue.component(component.name, component)
     })
-  }
+  },
 }
 
 export default {
