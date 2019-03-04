@@ -9,11 +9,13 @@
       noGutters
       :flexGrow="1">
       <sl-col
-        flex align="center"
+        fullHeight
+        flex
+        align="center"
+        justify="center"
         col="12"
         md="5"
         lg="6"
-        justify="start"
         class="column--avatar">
         <div class="avatar" v-lazy.background-image="avatarUrl" />
         <div class="intro-text">
@@ -110,7 +112,6 @@ export default {
 <style lang="scss" scoped>
   .column {
     &--avatar {
-      padding-top: 25vh;
       position: fixed;
 
       @media screen and (max-width: 767px) {
