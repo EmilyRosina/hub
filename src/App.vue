@@ -1,5 +1,7 @@
 <template>
-  <div id="app" :class="{ 'mobile': isMobile }">
+  <div
+    id="app"
+    :class="{ 'mobile': isMobile, 'hide-overflow': modal.show }">
     <transition name="fade" mode="out-in" appear>
       <router-view></router-view>
     </transition>
@@ -7,10 +9,13 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations, mapActions } from 'vuex'
+import {
+  mapGetters, mapMutations, mapActions, mapState,
+} from 'vuex'
 
 export default {
   name: 'app',
+
   mounted() {
     // essential for breakpoints to be accessible in vue
     this.SET_WIDTH(window.innerWidth)
@@ -18,6 +23,9 @@ export default {
     this.GET_TREEHOUSE_DATA()
   },
   computed: {
+    ...mapState([
+      'modal',
+    ]),
     ...mapGetters([
       'breakpoint',
     ]),

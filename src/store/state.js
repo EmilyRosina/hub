@@ -7,4 +7,8 @@ export default {
     points: null,
   },
   repos,
+  modal: {
+    show: false,
+    header: null,
+  },
 }
