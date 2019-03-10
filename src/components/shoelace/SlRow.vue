@@ -57,7 +57,9 @@ export default {
       if (props.fullHeight) list.push('full-height')
       if (props.noGutters) list.push('row-flush')
       if (props.noWrap) list.push('row-nowrap')
-      return list.join(' ')
+      return list.map((className) => className
+        .replace(/([a-z])([A-Z])/g, '$1-$2')
+        .toLowerCase()).join(' ')
     },
     styles() {
       const styles = {}
