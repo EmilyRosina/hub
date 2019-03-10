@@ -2,24 +2,24 @@
 
 import 'shoelace-css/dist/shoelace.css'
 
-import slAlert from './alert'
-import slBadge from './badge'
-import slBadgeLink from './badgeLink'
-import slButton from './button'
-import slButtonLink from './buttonLink'
-import slCol from './col'
-import slContainer from './container'
-import slRow from './row'
+import SlAlert from './SlAlert'
+import SlBadge from './SlBadge'
+import SlBadgeLink from './SlBadgeLink'
+import SlButton from './SlButton'
+import SlButtonLink from './SlButtonLink'
+import SlCol from './SlCol'
+import SlContainer from './SlContainer'
+import SlRow from './SlRow'
 
 /* eslint-disable no-multi-spaces */
 //   ❌✔️ = completion status    //
 export default [
-  slAlert,        // ❌
-  slBadge,        // ❌
-  slBadgeLink,    // ❌
-  slButton,       // ❌
-  slButtonLink,   // ❌
-  slCol,          // ✔️
-  slContainer,    // ✔️
-  slRow,           // ✔️
+  SlAlert,        // ❌
+  SlBadge,        // ❌
+  SlBadgeLink,    // ❌
+  SlButton,       // ❌
+  SlButtonLink,   // ❌
+  SlCol,          // ✔️
+  SlContainer,    // ✔️
+  SlRow,          // ✔️
 ]

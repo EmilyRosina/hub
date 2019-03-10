@@ -75,10 +75,6 @@ export default {
     &__title-bar {
       justify-content: space-between;
       align-items: center;
-      > * {
-        flex: 1 0 auto;
-        width: 100%;
-      }
     }
 
     &__links {

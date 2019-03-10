@@ -5,6 +5,22 @@
     fullHeight
     class="background-img"
     v-lazy.background-image="bgUrl">
+
+    <Modal>
+      <div class="treehouse-badges">
+        <span
+          class="treehouse-badge"
+          v-for="{ icon_url: icon, name, id } of treehouse.badges"
+          :key="id"
+          :data-tooltip="name">
+          <img
+            :alt="name"
+            :src="icon"
+            class="treehouse-badge__icon"/>
+        </span>
+      </div>
+    </Modal>
+
     <sl-row
       noGutters
       :flexGrow="1">
@@ -33,6 +49,11 @@
             </p>
           </h5>
         </div>
+        <!-- keep this for when i fix vue-awesome x and y props -->
+        <!-- <icon label="Vue is awesome">
+          <icon name="vue" scale="2"/>
+          <icon name="lovethis" x="15" y="12" class="fa-icon--i-love-this" scale="0.9"/>
+        </icon> -->
         <sl-row class="social-links">
           <a
             v-for="({ href, target, icon}, key) in socialLinks"
@@ -43,16 +64,24 @@
             <icon :name="icon" scale="1.5"></icon>
           </a>
         </sl-row>
+        <icon
+          name="treehouse"
+          scale="3"
+          class="clickable"
+          @click.native="OPEN_MODAL('TreeHouse Progress')"/>
       </sl-col>
       <sl-col flex align="center" col="12" md="7" lg="6" class="column--repos">
         <Repo v-for="(repo, key) in repos" :key="key" :repo="repo" />
       </sl-col>
     </sl-row>
+
   </sl-container>
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex'
 import Repo from '@/components/Repo'
+import Modal from '@/components/Modal'
 import bgUrl from '@/assets/images/background_galaxy.png'
 import avatarUrl from '@/assets/images/avatar.png'
 import softwareDailyIcon from '@/assets/images/softwaredaily.png'
@@ -60,51 +89,54 @@ import vueAwesomeIcon from '@/assets/images/vueawesome.png'
 
 export default {
   name: 'Welcome',
-  data() {
-    return {
-      socialLinks: {
-        linkedin: {
-          icon: 'brands/linkedin',
-          href: 'https://www.linkedin.com/in/emilyrosinacarey/',
-          target: '_blank',
-        },
-        github: {
-          icon: 'brands/github',
-          href: 'https://github.com/EmilyRosina',
-          target: '_blank',
-        },
-        email: {
-          icon: 'envelope',
-          href: 'mailto:emilyrc.jobs@gmail.com',
-        },
-      },
-      contributions: {
-        softwareDaily: {
-          icon: softwareDailyIcon,
-          href: 'https://github.com/SoftwareEngineeringDaily/sedaily-front-end',
-        },
-        vueAwesome: {
-          icon: vueAwesomeIcon,
-          href: 'https://github.com/Justineo/vue-awesome',
-        },
-      },
-      avatarUrl,
-      bgUrl,
-    }
-  },
   components: {
     Repo,
+    Modal,
   },
   computed: {
-    repos() {
-      return this.$store.state.repos
-    },
+    ...mapState([
+      'repos',
+      'treehouse',
+    ]),
     noOfContributions() {
       const { length } = Object.keys(this.contributions)
       return length === 1
         ? '1 repository'
         : `${length} repositories`;
     },
+  },
+  created() {
+    this.socialLinks = {
+      linkedin: {
+        icon: 'brands/linkedin',
+        href: 'https://www.linkedin.com/in/emilyrosinacarey/',
+        target: '_blank',
+      },
+      github: {
+        icon: 'brands/github',
+        href: 'https://github.com/EmilyRosina',
+        target: '_blank',
+      },
+      email: {
+        icon: 'envelope',
+        href: 'mailto:emilyrc.jobs@gmail.com',
+      },
+    }
+    this.contributions = {
+      softwareDaily: {
+        icon: softwareDailyIcon,
+        href: 'https://github.com/SoftwareEngineeringDaily/sedaily-front-end',
+      },
+      vueAwesome: {
+        icon: vueAwesomeIcon,
+        href: 'https://github.com/Justineo/vue-awesome',
+      },
+    }
+    this.avatarUrl = avatarUrl
+    this.bgUrl = bgUrl
+  },
+  methods: {
+    ...mapMutations(['OPEN_MODAL']),
   },
 }
 </script>
@@ -170,7 +202,7 @@ export default {
 
     &__contributor {
       background: transparentize(black, 0.5);
-      padding: 1em 0.5em;
+      padding: 1em 1.5em;
       border-radius: 2em;
       font-size: 0.8rem;
 
@@ -195,8 +227,10 @@ export default {
       &__count {
         background: transparentize(#ccc, 0.85);
         border-radius: 1em;
-        padding: 0 0.75em;
+        padding: 0.2em 0.7em;
         color: skyblue;
+        margin-left: 0.5em;
+        display: inline-flex;
       }
 
       &__wrapper {
@@ -219,12 +253,60 @@ export default {
       }
     }
   }
+
   .social-links {
-    @media screen and (max-width: 767px) {
-      margin-bottom: 4em;
+    padding-top: 2em;
+
+    .social-link {
+      padding: 0 0.75em;
     }
   }
-  .social-link {
-    padding: 0.5em 0.75em;
+
+  .treehouse-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+
+    .treehouse-badge {
+      height: 7em;
+      width: 7em;
+      margin: 0.5em;
+
+      &__icon {
+        height: 100%;
+        width: 100%;
+      }
+
+      &[data-tooltip] {
+        position: relative;
+
+        &::before {
+          content: attr(data-tooltip);
+          position: absolute;
+          padding: 0.5em;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          font-size: 0.8rem;
+          background: transparentize(#000, 0.25);
+          color: #fff;
+          font-weight: 600;
+          text-shadow: 0px 0px 5px black;
+          border-radius: 0.25em;
+          height: 100%;
+          width: 100%;
+          opacity: 0;
+          transition: opacity 0.25s ease-in-out;
+        }
+
+        &:hover {
+          &::before {
+            opacity: 1;
+          }
+        }
+      }
+    }
   }
 </style>

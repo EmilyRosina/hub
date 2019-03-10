@@ -100,15 +100,17 @@ export default {
       const props = this._props
       const list = []
       this.shoelaceClasses.breakpoints
-        .forEach((x) => { list.push(`col-${x}-${props[x]}`) })
+        .forEach((x) => list.push(`col-${x}-${props[x]}`))
       this.shoelaceClasses.utility
-        .forEach((x) => { list.push(`${x}-${props[x]}`) })
+        .forEach((x) => list.push(`${x}-${props[x]}`))
       if (props.fullHeight) list.push('full-height')
       if (props.flex) list.push('col-flex')
       if (props.noGutters) list.push('col-no-gutters')
       this.flexClasses
-        .forEach((x) => { list.push(`col-flex-${x}-${props[x].toString()}`) })
-      return list.join(' ')
+        .forEach((x) => list.push(`col-flex-${x}-${props[x].toString()}`))
+      return list.map((className) => className
+        .replace(/([a-z])([A-Z])/g, '$1-$2')
+        .toLowerCase()).join(' ')
     },
   },
 }
@@ -121,6 +123,7 @@ export default {
 .col-flex {
   display: flex;
   flex-direction: column;
+
   &-align {
     &-start {
       align-items: flex-start;
@@ -132,6 +135,7 @@ export default {
       align-items: flex-end;
     }
   }
+
   &-justify {
     &-start {
       justify-content: flex-start;
@@ -143,6 +147,7 @@ export default {
       justify-content: flex-end;
     }
   }
+
   &-grow {
     &-1 {
       flex: 1 1 auto;

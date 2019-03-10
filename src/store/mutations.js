@@ -28,4 +28,14 @@ export default {
       }
     }
   },
+
+  OPEN_MODAL(state, headerText) {
+    state.modal.header = headerText
+    state.modal.show = true
+  },
+
+  CLOSE_MODAL(state) {
+    state.modal.header = null
+    state.modal.show = false
+  },
 }
