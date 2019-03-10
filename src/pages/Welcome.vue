@@ -202,7 +202,7 @@ export default {
 
     &__contributor {
       background: transparentize(black, 0.5);
-      padding: 1em 0.5em;
+      padding: 1em 1.5em;
       border-radius: 2em;
       font-size: 0.8rem;
 
@@ -227,8 +227,10 @@ export default {
       &__count {
         background: transparentize(#ccc, 0.85);
         border-radius: 1em;
-        padding: 0 0.75em;
+        padding: 0.2em 0.7em;
         color: skyblue;
+        margin-left: 0.5em;
+        display: inline-flex;
       }
 
       &__wrapper {
@@ -252,8 +254,12 @@ export default {
     }
   }
 
-  .social-link {
-    padding: 0.5em 0.75em;
+  .social-links {
+    padding-top: 2em;
+
+    .social-link {
+      padding: 0 0.75em;
+    }
   }
 
   .treehouse-badges {
@@ -261,44 +267,44 @@ export default {
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
-  }
 
-  .treehouse-badge {
-    height: 7em;
-    width: 7em;
-    margin: 0.5em;
+    .treehouse-badge {
+      height: 7em;
+      width: 7em;
+      margin: 0.5em;
 
-    &__icon {
-      height: 100%;
-      width: 100%;
-    }
-
-    &[data-tooltip] {
-      position: relative;
-
-      &::before {
-        content: attr(data-tooltip);
-        position: absolute;
-        padding: 0.5em;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        font-size: 0.8rem;
-        background: transparentize(#000, 0.25);
-        color: #fff;
-        font-weight: 600;
-        text-shadow: 0px 0px 5px black;
-        border-radius: 0.25em;
+      &__icon {
         height: 100%;
         width: 100%;
-        opacity: 0;
-        transition: opacity 0.25s ease-in-out;
       }
 
-      &:hover {
+      &[data-tooltip] {
+        position: relative;
+
         &::before {
-          opacity: 1;
+          content: attr(data-tooltip);
+          position: absolute;
+          padding: 0.5em;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          font-size: 0.8rem;
+          background: transparentize(#000, 0.25);
+          color: #fff;
+          font-weight: 600;
+          text-shadow: 0px 0px 5px black;
+          border-radius: 0.25em;
+          height: 100%;
+          width: 100%;
+          opacity: 0;
+          transition: opacity 0.25s ease-in-out;
+        }
+
+        &:hover {
+          &::before {
+            opacity: 1;
+          }
         }
       }
     }
