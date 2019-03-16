@@ -1,5 +1,7 @@
 # My Hub linking to my various repos
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/987ede1f-a40f-47ee-bff9-69b81768f833/deploy-status)](https://app.netlify.com/sites/emilyrosina/deploys)
+
 ## Project setup
 ```
 npm install
@@ -7,7 +9,7 @@ npm install
 
 ### Compiles and hot-reloads for development
 ```
-npm run serve
+npm run dev
 ```
 
 ### Compiles and minifies for production
