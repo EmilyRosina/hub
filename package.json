@@ -14,7 +14,7 @@
     "register-service-worker": "^1.6.2",
     "shoelace-css": "^1.0.0-beta24",
     "vue": "^2.6.10",
-    "vue-analytics": "^5.16.4",
+    "vue-analytics": "^5.17.0",
     "vue-awesome": "^3.5.2",
     "vue-lazyload": "^1.2.6",
     "vue-moment": "^4.0.0",
