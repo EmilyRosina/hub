@@ -11,13 +11,13 @@ export default {
     style: {
       type: String,
       default: 'button',
-      required: false,
-    },
+      required: false
+    }
   },
   computed: {
-    button() {
+    button () {
       return this.style === 'link' ? 'button-link' : ''
-    },
-  },
+    }
+  }
 }
 </script>

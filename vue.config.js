@@ -1,15 +1,15 @@
 module.exports = {
   configureWebpack: {
     resolve: {
-      alias: require('./aliases.config').webpack,
-    },
+      alias: require('./aliases.config').webpack
+    }
   },
   css: {
     loaderOptions: {
       sass: {
-        data: '@import "./src/assets/styles/scss/_vars.scss";',
-      },
+        additionalData: '@import "./src/assets/styles/scss/_vars.scss";'
+      }
     },
-    sourceMap: true,
-  },
-};
+    sourceMap: true
+  }
+}

@@ -10,8 +10,8 @@ export default {
   props: {
     badge: {
       type: String,
-      default: '',
-    },
-  },
+      default: ''
+    }
+  }
 }
 </script>

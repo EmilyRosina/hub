@@ -24,11 +24,11 @@ import { mapState, mapMutations } from 'vuex'
 export default {
   name: 'Modal',
   computed: {
-    ...mapState(['modal']),
+    ...mapState(['modal'])
   },
   methods: {
-    ...mapMutations(['CLOSE_MODAL']),
-  },
+    ...mapMutations(['CLOSE_MODAL'])
+  }
 }
 </script>
 

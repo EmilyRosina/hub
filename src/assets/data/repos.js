@@ -4,7 +4,7 @@ export default {
     description: 'Search app to aid crafting in Final Fantasy Online (FFXIV)',
     links: {
       github: 'https://github.com/EmilyRosina/ffxiv-crafting',
-      live: 'https://emilyrosina.github.io/ffxiv-crafting',
+      live: 'https://emilyrosina.github.io/ffxiv-crafting'
     },
     tags: [
       'vue',
@@ -13,16 +13,16 @@ export default {
       'axios',
       'search',
       'gaming',
-      'github pages',
+      'github pages'
     ],
-    wip: false,
+    wip: false
   },
   octopusLabsChallenge: {
     title: 'Octopus Labs Challenge',
     description: 'Small address search and save app, to accumulate residential addresses for past 3 years',
     links: {
       github: 'https://github.com/EmilyRosina/octopus-labs-challenge',
-      live: 'https://emilyrosina.github.io/octopus-labs-challenge',
+      live: 'https://emilyrosina.github.io/octopus-labs-challenge'
     },
     tags: [
       'react',
@@ -32,39 +32,39 @@ export default {
       'search',
       'local storage',
       'session storage',
-      'github pages',
+      'github pages'
     ],
-    wip: false,
+    wip: false
   },
   vueFirebaseLogin: {
     title: 'Vue/Firebase Login',
     description: 'Simple login app using vue and firebase',
     links: {
-      github: 'https://github.com/simplexample/vue-firebase-login',
+      github: 'https://github.com/simplexample/vue-firebase-login'
     },
     tags: [
       'vue',
       'firebase',
       'sass',
-      'authentication',
+      'authentication'
     ],
-    wip: false,
+    wip: false
   },
   pokedex: {
     title: 'Pokedex',
     description: 'Mini web app to search through 1st gen Pokemon and show details, cards and sprites for selected/random pokemon.',
     links: {
       github: 'https://github.com/EmilyRosina/pokedex',
-      live: 'https://emilyrosina.github.io/pokedex',
+      live: 'https://emilyrosina.github.io/pokedex'
     },
     tags: [
       'vue',
       'sass',
       'api',
       'axios',
-      'github pages',
+      'github pages'
     ],
-    wip: false,
+    wip: false
   },
   userStoryBuilder: {
     title: 'User Story Builder',
@@ -72,22 +72,22 @@ export default {
     Then using those structures to create user stories.`,
     links: {
       github: 'https://github.com/EmilyRosina/user-story-builder',
-      live: 'https://emilyrosina.github.io/user-story-builder/',
+      live: 'https://emilyrosina.github.io/user-story-builder/'
     },
     tags: [
       'vue',
       'sass',
       'local storage',
-      'github pages',
+      'github pages'
     ],
-    wip: false,
+    wip: false
   },
   shoelaceVue: {
     title: 'Shoelace-Vue',
     description: 'My attempt at creating a vue component library for shoelace components.',
     links: {
       github: 'https://github.com/EmilyRosina/shoelace-vue',
-      live: 'https://emilyrosina.github.io/shoelace-vue',
+      live: 'https://emilyrosina.github.io/shoelace-vue'
     },
     tags: [
       'vue',
@@ -95,31 +95,31 @@ export default {
       'vue plugin',
       'shoelace',
       'npm registry',
-      'github pages',
+      'github pages'
     ],
-    wip: true,
+    wip: true
   },
   mongoExpressApi: {
     title: 'Mongo Express API Boilerplate',
     description: 'Simple boilerplate for me to create Api\'s for my exisiting and future projects.',
     links: {
       github: 'https://github.com/EmilyRosina/MongoExpressApi',
-      live: '',
+      live: ''
     },
     tags: [
       'api',
       'mongodb',
       'express',
-      'node',
+      'node'
     ],
-    wip: false,
+    wip: false
   },
   recipeApi: {
     title: 'Recipe API',
     description: 'Small recipe app, (create, read, update, delete) recipes and their ingredients.',
     links: {
       github: 'https://github.com/EmilyRosina/RecipeApi',
-      live: '',
+      live: ''
     },
     tags: [
       'jquery',
@@ -127,8 +127,8 @@ export default {
       'css',
       'vanilla js',
       'api',
-      'axios',
+      'axios'
     ],
-    wip: false,
-  },
+    wip: false
+  }
 }

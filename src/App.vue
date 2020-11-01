@@ -10,13 +10,13 @@
 
 <script>
 import {
-  mapGetters, mapMutations, mapActions, mapState,
+  mapGetters, mapMutations, mapActions, mapState
 } from 'vuex'
 
 export default {
   name: 'app',
 
-  mounted() {
+  mounted () {
     // essential for breakpoints to be accessible in vue
     this.SET_WIDTH(window.innerWidth)
     window.addEventListener('resize', () => this.SET_WIDTH(window.innerWidth))
@@ -24,24 +24,24 @@ export default {
   },
   computed: {
     ...mapState([
-      'modal',
+      'modal'
     ]),
     ...mapGetters([
-      'breakpoint',
+      'breakpoint'
     ]),
-    isMobile() {
+    isMobile () {
       return this.breakpoint === 'xs'
-    },
+    }
   },
   methods: {
     ...mapMutations([
-      'SET_WIDTH',
+      'SET_WIDTH'
     ]),
     ...mapActions([
-      'GET_TREEHOUSE_DATA',
-    ]),
-  },
-};
+      'GET_TREEHOUSE_DATA'
+    ])
+  }
+}
 </script>
 
 <style>

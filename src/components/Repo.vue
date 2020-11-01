@@ -47,9 +47,9 @@ export default {
     repo: {
       type: Object,
       default: () => ({}),
-      required: true,
-    },
-  },
+      required: true
+    }
+  }
 }
 </script>
 
@@ -60,7 +60,7 @@ export default {
     padding: 1em;
     width: 80%;
     cursor: default;
-    @extend %text-white;
+    color: white;
 
     &:not(:last-child) {
       margin-bottom: 1em;

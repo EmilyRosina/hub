@@ -21,5 +21,5 @@ export default [
   SlButtonLink,   // ❌
   SlCol,          // ✔️
   SlContainer,    // ✔️
-  SlRow,          // ✔️
+  SlRow          // ✔️
 ]

@@ -10,43 +10,43 @@ export default {
   props: {
     button: {
       type: String,
-      default: '',
+      default: ''
     },
     sm: {
       type: String,
-      default: '',
+      default: ''
     },
     md: {
       type: String,
-      default: '',
+      default: ''
     },
     lg: {
       type: String,
-      default: '',
+      default: ''
     },
     xl: {
       type: String,
-      default: '',
+      default: ''
     },
     active: {
       type: Boolean,
-      default: false,
+      default: false
     },
     disabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     loader: {
       type: Boolean,
-      default: false,
+      default: false
     },
     block: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   computed: {
-    classes() {
+    classes () {
       const list = []
       const props = this._props
       const classes = Object.keys(props)
@@ -57,7 +57,7 @@ export default {
       if (props.loader) list.push('button-loader')
       if (props.block) list.push('button-block')
       return list.join(' ')
-    },
-  },
+    }
+  }
 }
 </script>

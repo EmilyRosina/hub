@@ -10,19 +10,19 @@ export default {
   props: {
     fullWidth: {
       type: Boolean,
-      default: false,
+      default: false
     },
     fullHeight: {
       type: Boolean,
-      default: false,
+      default: false
     },
     fluid: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   computed: {
-    classes() {
+    classes () {
       const props = this._props
       const list = []
       if (props.fullWidth) list.push('full-width')
@@ -30,8 +30,8 @@ export default {
       if (props.fluid) list.push('container-fluid')
       else list.push('container')
       return list.join(' ')
-    },
-  },
+    }
+  }
 }
 </script>
 

@@ -91,53 +91,53 @@ export default {
   name: 'Welcome',
   components: {
     Repo,
-    Modal,
+    Modal
   },
   computed: {
     ...mapState([
       'repos',
-      'treehouse',
+      'treehouse'
     ]),
-    noOfContributions() {
+    noOfContributions () {
       const { length } = Object.keys(this.contributions)
       return length === 1
         ? '1 repository'
-        : `${length} repositories`;
-    },
+        : `${length} repositories`
+    }
   },
-  created() {
+  created () {
     this.socialLinks = {
       linkedin: {
         icon: 'brands/linkedin',
         href: 'https://www.linkedin.com/in/emilyrosinacarey/',
-        target: '_blank',
+        target: '_blank'
       },
       github: {
         icon: 'brands/github',
         href: 'https://github.com/EmilyRosina',
-        target: '_blank',
+        target: '_blank'
       },
       email: {
         icon: 'envelope',
-        href: 'mailto:emilyrc.jobs@gmail.com',
-      },
+        href: 'mailto:emilyrc.jobs@gmail.com'
+      }
     }
     this.contributions = {
       softwareDaily: {
         icon: softwareDailyIcon,
-        href: 'https://github.com/SoftwareEngineeringDaily/sedaily-front-end',
+        href: 'https://github.com/SoftwareEngineeringDaily/sedaily-front-end'
       },
       vueAwesome: {
         icon: vueAwesomeIcon,
-        href: 'https://github.com/Justineo/vue-awesome',
-      },
+        href: 'https://github.com/Justineo/vue-awesome'
+      }
     }
     this.avatarUrl = avatarUrl
     this.bgUrl = bgUrl
   },
   methods: {
-    ...mapMutations(['OPEN_MODAL']),
-  },
+    ...mapMutations(['OPEN_MODAL'])
+  }
 }
 </script>
 

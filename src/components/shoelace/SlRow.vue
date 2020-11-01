@@ -12,43 +12,43 @@ export default {
   props: {
     row: {
       type: [Number, String],
-      default: '',
+      default: ''
     },
     sm: {
       type: [Number, String],
-      default: '',
+      default: ''
     },
     md: {
       type: [Number, String],
-      default: '',
+      default: ''
     },
     lg: {
       type: [Number, String],
-      default: '',
+      default: ''
     },
     xl: {
       type: [Number, String],
-      default: '',
+      default: ''
     },
     noGutters: {
       type: Boolean,
-      default: false,
+      default: false
     },
     noWrap: {
       type: Boolean,
-      default: false,
+      default: false
     },
     flexGrow: {
       type: [Number, String],
-      default: -1,
+      default: -1
     },
     fullHeight: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   computed: {
-    classes() {
+    classes () {
       const list = []
       const props = this._props
       const classes = Object.keys(props)
@@ -61,12 +61,12 @@ export default {
         .replace(/([a-z])([A-Z])/g, '$1-$2')
         .toLowerCase()).join(' ')
     },
-    styles() {
+    styles () {
       const styles = {}
       if (this.flexGrow >= 0) styles.flex = `${this.flexGrow} 0 auto`
       return styles
-    },
-  },
+    }
+  }
 }
 </script>
 

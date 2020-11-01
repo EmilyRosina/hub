@@ -1,5 +1,0 @@
-build/*.js
-config/*.js
-node_modules/*
-aliases.config.js
-vue.config.js

@@ -3,9 +3,9 @@ export const breakpoints = {
   sm: [576, 767],
   md: [768, 991],
   lg: [992, 1199],
-  xl: [1200, Infinity],
+  xl: [1200, Infinity]
 }
 
 export default {
-  breakpoints,
+  breakpoints
 }

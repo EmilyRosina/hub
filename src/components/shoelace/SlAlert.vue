@@ -8,8 +8,8 @@ export default {
   props: {
     alert: {
       type: String,
-      default: '',
-    },
-  },
+      default: ''
+    }
+  }
 }
 </script>

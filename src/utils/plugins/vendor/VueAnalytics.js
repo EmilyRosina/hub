@@ -6,11 +6,11 @@ export default {
   options: {
     id: 'UA-118444519-1',
     debug: {
-      sendHitTask: process.env.NODE_ENV === 'production',
+      sendHitTask: process.env.NODE_ENV === 'production'
     },
     router,
     autoTracking: {
-      shouldRouterUpdate: (to, from) => to.path !== from.path,
-    },
-  },
+      shouldRouterUpdate: (to, from) => to.path !== from.path
+    }
+  }
 }

@@ -10,78 +10,78 @@ export default {
   props: {
     col: {
       type: [Number, String],
-      default: '',
+      default: ''
     },
     xs: {
       type: [Number, String],
-      default: '',
+      default: ''
     },
     sm: {
       type: [Number, String],
-      default: '',
+      default: ''
     },
     md: {
       type: [Number, String],
-      default: '',
+      default: ''
     },
     lg: {
       type: [Number, String],
-      default: '',
+      default: ''
     },
     xl: {
       type: [Number, String],
-      default: '',
+      default: ''
     },
     hide: {
       type: [Number, String],
-      default: '',
+      default: ''
     },
     order: {
       type: [Number, String],
-      default: '',
+      default: ''
     },
     offset: {
       type: [Number, String],
-      default: '',
+      default: ''
     },
     flex: {
       type: Boolean,
-      default: false,
+      default: false
     },
     grow: {
       type: [Number, String],
-      default: '',
+      default: ''
     },
     align: {
       type: String,
-      default: '',
+      default: ''
     },
     justify: {
       type: String,
-      default: '',
+      default: ''
     },
     noGutters: {
       type: Boolean,
-      default: false,
+      default: false
     },
     fullHeight: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
-  data() {
+  data () {
     return {
       classes: {
         shoelace: {
           breakpoints: ['xs', 'sm', 'md', 'lg', 'xl'],
-          utility: ['col', 'hide', 'order', 'offset'],
+          utility: ['col', 'hide', 'order', 'offset']
         },
-        flex: ['align', 'justify', 'grow'],
-      },
+        flex: ['align', 'justify', 'grow']
+      }
     }
   },
   computed: {
-    shoelaceClasses() {
+    shoelaceClasses () {
       const props = this._props
       const shoelaceClasses = {}
       shoelaceClasses.breakpoints = this.classes.shoelace.breakpoints
@@ -90,13 +90,13 @@ export default {
         .filter((prop) => props[prop])
       return shoelaceClasses
     },
-    flexClasses() {
+    flexClasses () {
       const props = this._props
       const flexClasses = this.classes.flex
         .filter((prop) => props[prop])
       return flexClasses
     },
-    appliedClasses() {
+    appliedClasses () {
       const props = this._props
       const list = []
       this.shoelaceClasses.breakpoints
@@ -111,8 +111,8 @@ export default {
       return list.map((className) => className
         .replace(/([a-z])([A-Z])/g, '$1-$2')
         .toLowerCase()).join(' ')
-    },
-  },
+    }
+  }
 }
 </script>
 
