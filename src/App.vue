@@ -1,9 +1,15 @@
 <template>
   <div
     id="app"
-    :class="{ 'mobile': isMobile, 'hide-overflow': modal.show }">
-    <transition name="fade" mode="out-in" appear>
-      <router-view></router-view>
+    :class="[{
+      'mobile': isMobile,
+      'hide-overflow': modal.show
+    }]">
+    <transition
+      name="fade"
+      mode="out-in"
+      appear>
+      <router-view/>
     </transition>
   </div>
 </template>
@@ -46,7 +52,7 @@ export default {
 
 <style>
   #app {
-    min-height: 100vh;
+    max-height: 100vh;
     height: 100%;
     width: 100%;
     max-width: 100vw;

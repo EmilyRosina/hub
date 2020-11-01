@@ -10,22 +10,23 @@
         noGutters
         class="repo__links">
         <span
-          class="repo__link repo__link--wip"
-          v-if="repo.wip">
+          v-if="repo.wip"
+          class="repo__link repo__link--wip">
           WIP
         </span>
         <a
+          v-if="repo.links.github"
           class="repo__link"
           :href="repo.links.github"
           target="_blank">
-          <icon name="brands/github" alt="source code" scale="2" />
+          <icon name="brands/github" alt="source code" scale="2"/>
         </a>
         <a
+          v-if="repo.links.live"
           class="repo__link"
           :href="repo.links.live"
-          v-if="repo.links.live"
           target="_blank">
-          <icon name="globe-americas" alt="live site" scale="2" />
+          <icon name="globe-americas" alt="live site" scale="2"/>
         </a>
       </sl-row>
     </sl-row>
@@ -46,7 +47,6 @@ export default {
   props: {
     repo: {
       type: Object,
-      default: () => ({}),
       required: true
     }
   }
@@ -74,13 +74,15 @@ export default {
 
     &__title-bar {
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
+      flex-wrap: nowrap;
     }
 
     &__links {
-      @extend %flex;
-      align-items: center;
       justify-content: flex-end;
+      flex: 1 0 auto;
+
+      @extend %flex;
     }
 
     &__link {

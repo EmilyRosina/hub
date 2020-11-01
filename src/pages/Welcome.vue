@@ -3,15 +3,14 @@
     id="welcome"
     fullWidth
     fullHeight
-    class="background-img"
-    v-lazy.background-image="bgUrl">
+    class="background-img">
 
     <Modal>
       <div class="treehouse-badges">
         <span
-          class="treehouse-badge"
           v-for="{ icon_url: icon, name, id } of treehouse.badges"
           :key="id"
+          class="treehouse-badge"
           :data-tooltip="name">
           <img
             :alt="name"
@@ -23,7 +22,8 @@
 
     <sl-row
       noGutters
-      :flexGrow="1">
+      :flexGrow="1"
+      class="wrapper">
       <sl-col
         fullHeight
         flex
@@ -33,7 +33,7 @@
         md="5"
         lg="6"
         class="column--avatar">
-        <div class="avatar" v-lazy.background-image="avatarUrl" />
+        <div v-lazy.background-image="avatarUrl" class="avatar"/>
         <div class="intro-text">
           <h4 class="intro-text__name">Emily Rosina Carey</h4>
           <h5 class="intro-text__role">Front-end Developer</h5>
@@ -56,7 +56,7 @@
         </icon> -->
         <sl-row class="social-links">
           <a
-            v-for="({ href, target, icon}, key) in socialLinks"
+            v-for="({ href, target, icon }, key) in socialLinks"
             :key="key"
             :href="href"
             class="social-link"
@@ -65,13 +65,23 @@
           </a>
         </sl-row>
         <icon
+          v-if="false"
           name="treehouse"
           scale="3"
           class="clickable"
           @click.native="OPEN_MODAL('TreeHouse Progress')"/>
       </sl-col>
-      <sl-col flex align="center" col="12" md="7" lg="6" class="column--repos">
-        <Repo v-for="(repo, key) in repos" :key="key" :repo="repo" />
+      <sl-col
+        flex
+        align="center"
+        col="12"
+        md="7"
+        lg="6"
+        class="column--repos">
+        <Repo
+          v-for="(repo, key) in sortedFilters"
+          :key="key"
+          :repo="repo"/>
       </sl-col>
     </sl-row>
 
@@ -82,8 +92,8 @@
 import { mapState, mapMutations } from 'vuex'
 import Repo from '@/components/Repo'
 import Modal from '@/components/Modal'
-import bgUrl from '@/assets/images/background_galaxy.png'
 import avatarUrl from '@/assets/images/avatar.png'
+import simpleBarIcon from '@/assets/images/simpleBar.png'
 import softwareDailyIcon from '@/assets/images/softwaredaily.png'
 import vueAwesomeIcon from '@/assets/images/vueawesome.png'
 
@@ -103,6 +113,12 @@ export default {
       return length === 1
         ? '1 repository'
         : `${length} repositories`
+    },
+    sortedFilters () {
+      const repos = Object.entries(this.repos)
+        .filter((key, { show }) => !show)
+        .sort((a, b) => a[0] - b[0])
+      return Object.fromEntries(repos)
     }
   },
   created () {
@@ -123,6 +139,10 @@ export default {
       }
     }
     this.contributions = {
+      simpleBar: {
+        icon: simpleBarIcon,
+        href: 'https://github.com/Grsmto/simplebar'
+      },
       softwareDaily: {
         icon: softwareDailyIcon,
         href: 'https://github.com/SoftwareEngineeringDaily/sedaily-front-end'
@@ -133,7 +153,6 @@ export default {
       }
     }
     this.avatarUrl = avatarUrl
-    this.bgUrl = bgUrl
   },
   methods: {
     ...mapMutations(['OPEN_MODAL'])
@@ -154,9 +173,12 @@ export default {
     &--repos {
       padding: 3em 0;
       margin-left: auto;
+      overflow-x: auto;
+      height: 100vh;
 
       @media screen and (max-width: 767px) {
         margin: unset;
+        overflow: unset;
       }
     }
   }
@@ -275,11 +297,12 @@ export default {
 
       &__icon {
         height: 100%;
-        width: 100%;
       }
 
       &[data-tooltip] {
         position: relative;
+        display: flex;
+        justify-content: center;
 
         &::before {
           content: attr(data-tooltip);
@@ -307,6 +330,12 @@ export default {
           }
         }
       }
+    }
+  }
+
+  .wrapper {
+    @media screen and (max-width: 767px) {
+      overflow-y: auto;
     }
   }
 </style>

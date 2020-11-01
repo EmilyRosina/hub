@@ -5,6 +5,8 @@
 </template>
 
 <script>
+/* eslint-disable vue/no-unused-properties */
+
 export default {
   name: 'sl-button',
   props: {
@@ -52,10 +54,10 @@ export default {
       const classes = Object.keys(props)
         .filter((prop) => props[prop] && !['active', 'disabled'].includes(prop))
       classes.forEach((x) => list.push(`${x}-${props[x]}`))
-      if (props.active) list.push('active')
-      if (props.disabled) list.push('disabled')
-      if (props.loader) list.push('button-loader')
-      if (props.block) list.push('button-block')
+      if (this.active) list.push('active')
+      if (this.disabled) list.push('disabled')
+      if (this.loader) list.push('button-loader')
+      if (this.block) list.push('button-block')
       return list.join(' ')
     }
   }

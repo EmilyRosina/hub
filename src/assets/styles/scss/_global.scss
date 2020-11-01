@@ -8,17 +8,17 @@
 ::-webkit-scrollbar {
   width: 0.75em;
   background: none;
-  background-color: darken($indigo, 3);
 
   &-track {
     margin: 2px;
     border-radius: 1em;
+    background-color: transparentize(black, 0.85);
   }
 
   &-thumb {
     border-radius: 0.5em;
-    box-shadow: inset 0 0 4px transparentize(#000, 0.3);
-    background-color: darken($indigo, 10);
+    box-shadow: inset 0 0 2px transparentize(black, 0.5);
+    background-color: darken($indigo, 2);
   }
 }
 
@@ -33,20 +33,16 @@
   }
 }
 
-body,
-.background-img {
-  background: $blue-dark;
-}
-
-.background-img {
-  background-size: 100%;
-  background-repeat: no-repeat;
-  transition: 0.5s ease-out;
-  opacity: 0;
-  &[lazy='loaded'] {
-    opacity: 1;
-    background-image: url('../../images/background_galaxy.png');
-  }
+body {
+  background: radial-gradient(
+    circle at bottom,
+    #0c574d15 0%,
+    #0e7b7925 5%,
+    #07788535 10%,
+    #30173d55 50%,
+    #24214355 65%,
+    #090A0F 100%
+  );
 }
 
 .avatar {

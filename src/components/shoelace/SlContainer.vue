@@ -23,11 +23,10 @@ export default {
   },
   computed: {
     classes () {
-      const props = this._props
       const list = []
-      if (props.fullWidth) list.push('full-width')
-      if (props.fullHeight) list.push('full-height')
-      if (props.fluid) list.push('container-fluid')
+      if (this.fullWidth) list.push('full-width')
+      if (this.fullHeight) list.push('full-height')
+      if (this.fluid) list.push('container-fluid')
       else list.push('container')
       return list.join(' ')
     }

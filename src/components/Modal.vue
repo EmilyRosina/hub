@@ -9,7 +9,7 @@
           name="times"
           scale="1.5"
           class="clickable"
-          @click.native="CLOSE_MODAL()" />
+          @click.native="CLOSE_MODAL()"/>
       </header>
       <main class="modal__content">
         <slot></slot>
@@ -50,7 +50,7 @@ export default {
       position: fixed;
       height: 100vh;
       width: 100vw;
-      background: transparentize($indigo, 0.25);
+      background: transparentize(black, 0.5);
       display: flex;
       justify-content: center;
       align-items: center;

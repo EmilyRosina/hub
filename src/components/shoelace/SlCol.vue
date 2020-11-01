@@ -5,6 +5,8 @@
 </template>
 
 <script>
+/* eslint-disable vue/no-unused-properties */
+
 export default {
   name: 'sl-col',
   props: {
@@ -69,17 +71,15 @@ export default {
       default: false
     }
   },
-  data () {
-    return {
-      classes: {
-        shoelace: {
-          breakpoints: ['xs', 'sm', 'md', 'lg', 'xl'],
-          utility: ['col', 'hide', 'order', 'offset']
-        },
-        flex: ['align', 'justify', 'grow']
-      }
+  data: () => ({
+    classes: {
+      shoelace: {
+        breakpoints: ['xs', 'sm', 'md', 'lg', 'xl'],
+        utility: ['col', 'hide', 'order', 'offset']
+      },
+      flex: ['align', 'justify', 'grow']
     }
-  },
+  }),
   computed: {
     shoelaceClasses () {
       const props = this._props
@@ -103,9 +103,9 @@ export default {
         .forEach((x) => list.push(`col-${x}-${props[x]}`))
       this.shoelaceClasses.utility
         .forEach((x) => list.push(`${x}-${props[x]}`))
-      if (props.fullHeight) list.push('full-height')
-      if (props.flex) list.push('col-flex')
-      if (props.noGutters) list.push('col-no-gutters')
+      if (this.fullHeight) list.push('full-height')
+      if (this.flex) list.push('col-flex')
+      if (this.noGutters) list.push('col-no-gutters')
       this.flexClasses
         .forEach((x) => list.push(`col-flex-${x}-${props[x].toString()}`))
       return list.map((className) => className
@@ -128,9 +128,11 @@ export default {
     &-start {
       align-items: flex-start;
     }
+
     &-center {
       align-items: center;
     }
+
     &-end {
       align-items: flex-end;
     }
@@ -140,9 +142,11 @@ export default {
     &-start {
       justify-content: flex-start;
     }
+
     &-center {
       justify-content: center;
     }
+
     &-end {
       justify-content: flex-end;
     }
@@ -152,15 +156,19 @@ export default {
     &-1 {
       flex: 1 1 auto;
     }
+
     &-2 {
       flex: 2 1 auto;
     }
+
     &-3 {
       flex: 3 1 auto;
     }
+
     &-4 {
       flex: 4 1 auto;
     }
+
     &-5 {
       flex: 5 1 auto;
     }

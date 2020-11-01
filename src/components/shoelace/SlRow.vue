@@ -7,6 +7,8 @@
 </template>
 
 <script>
+/* eslint-disable vue/no-unused-properties */
+
 export default {
   name: 'sl-row',
   props: {
@@ -41,10 +43,6 @@ export default {
     flexGrow: {
       type: [Number, String],
       default: -1
-    },
-    fullHeight: {
-      type: Boolean,
-      default: false
     }
   },
   computed: {
@@ -54,9 +52,9 @@ export default {
       const classes = Object.keys(props)
         .filter((prop) => props[prop] && !['noGutters', 'noWrap', 'fullHeight'].includes(prop))
       classes.forEach((option) => list.push(`${option}-${props[option]}`))
-      if (props.fullHeight) list.push('full-height')
-      if (props.noGutters) list.push('row-flush')
-      if (props.noWrap) list.push('row-nowrap')
+      if (this.fullHeight) list.push('full-height')
+      if (this.noGutters) list.push('row-flush')
+      if (this.noWrap) list.push('row-nowrap')
       return list.map((className) => className
         .replace(/([a-z])([A-Z])/g, '$1-$2')
         .toLowerCase()).join(' ')
