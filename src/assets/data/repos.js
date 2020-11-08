@@ -15,6 +15,7 @@ export default {
     links: {
       live: 'https://chrome.google.com/webstore/detail/github-saved-filters/pmkbippobcmchabghaeonfbbcncjhmjm'
     },
+    isSpecial: true,
     show: true,
     tags: ['vue', 'sass', 'chrome extension', 'pjax', 'search', 'github'],
     title: 'Github Saved Filters',

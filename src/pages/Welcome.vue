@@ -79,7 +79,7 @@
         lg="6"
         class="column--repos">
         <Repo
-          v-for="(repo, key) in sortedFilters"
+          v-for="(repo, key) in sortedRepos"
           :key="key"
           :repo="repo"/>
       </sl-col>
@@ -114,7 +114,7 @@ export default {
         ? '1 repository'
         : `${length} repositories`
     },
-    sortedFilters () {
+    sortedRepos () {
       const repos = Object.entries(this.repos)
         .filter((key, { show }) => !show)
         .sort((a, b) => a[0] - b[0])
@@ -189,7 +189,7 @@ export default {
     }
   }
   .intro-text {
-    color: deepskyblue;
+    color: $blue-bright;
     padding-top: 1em;
     text-align: center;
 
@@ -207,7 +207,7 @@ export default {
     }
 
     &__role {
-      background:#00c180;
+      background: $green-bright;
       clip-path: polygon(
         0% 0%,
         100% 1%,

@@ -1,7 +1,7 @@
 <template>
   <div
     noGutters
-    class="repo">
+    :class="['repo', { 'repo--special': repo.isSpecial }]">
     <sl-row
       class="repo__title-bar"
       noGutters>
@@ -19,21 +19,27 @@
           class="repo__link"
           :href="repo.links.github"
           target="_blank">
-          <icon name="brands/github" alt="source code" scale="2"/>
+          <icon
+            name="brands/github"
+            alt="source code"
+            scale="2"/>
         </a>
         <a
           v-if="repo.links.live"
           class="repo__link"
           :href="repo.links.live"
           target="_blank">
-          <icon name="globe-americas" alt="live site" scale="2"/>
+          <icon
+            name="globe-americas"
+            alt="live site"
+            scale="2"/>
         </a>
       </sl-row>
     </sl-row>
     <p class="repo__description">{{ repo.description }}</p>
     <p>
       <span
-        v-for="(tag, index) in repo.tags"
+        v-for="(tag, index) of repo.tags"
         :key="index"
         class="tag">
         {{ tag }}
@@ -93,7 +99,7 @@ export default {
       }
 
       &--wip {
-        color: #00c180;
+        color: $green-bright;
         font-size: 0.8rem;
         line-height: 1;
         font-weight: 600;
@@ -106,6 +112,31 @@ export default {
       padding: 0.5em;
       color: #ccc;
       font-weight: 300;
+    }
+
+    &--special {
+      order: -1;
+      border: 2px solid $blue-bright;
+
+      .repo {
+        &__title {
+          color: $blue-bright;
+          font-weight: 400;
+          letter-spacing: -1px;
+        }
+
+        &__link .fa-icon {
+          color: transparentize($blue-bright, 0.4);
+
+          &:hover {
+            color: $blue-bright;
+          }
+        }
+      }
+
+      .tag {
+        background: transparentize($blue-bright, 0.5);
+      }
     }
   }
   .tag {
